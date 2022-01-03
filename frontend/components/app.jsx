@@ -10,7 +10,7 @@ const App = () => (
         </header>
         <Routes>
             <Route path="/" element={<SignUpFormContainer/>}/>
-            <Route path="/" element={<LogInFormContainer/>}/>
+            {/* <Route path="/" element={<LogInFormContainer/>}/> */}
         </Routes>
     </div>
 )
