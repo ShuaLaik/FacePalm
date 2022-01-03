@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createUser, logInUser, logOutUser } from "./util/user_auth_util";
+import configureStore from "./store/store";
+import Root from "./components/root"
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    window.createUser = createUser;
-    window.logInUser = logInUser;
-    window.logOutUser = logOutUser;
+    const store= configureStore();
+    window.getState = store.getState;
+    window.dispath = store.dispatch;
     const root = document.getElementById("root");
-    ReactDOM.render(<h1>Its Working!</h1>, root)
+    ReactDOM.render(<Root store={store}/>, root)
 })
