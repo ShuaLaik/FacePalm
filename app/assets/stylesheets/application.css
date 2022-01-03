@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ * {
+     border: 1px solid red;
+ }
+
+ #signupform {
+    position: fixed;
+    top: 50%;
+    width: 60%;
+    left: 30%;
+
+ }

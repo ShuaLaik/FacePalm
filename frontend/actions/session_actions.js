@@ -15,11 +15,18 @@ const receiveErrors = errors => ({
     type: RECEIVE_ERRORS,
     errors
 })
-const logInUser = user => dispatch => {
+export const logInUser = user => dispatch => {
     return UserAuthUtil.logInUser(user)
         .then(user => dispatch(receiveCurrentUser(user)))
+        .fail(errors => dispatch(receiveErrors(errors)))
 }
-const logOutUser = () => dispatch => {
+export const logOutUser = () => dispatch => {
     return UserAuthUtil.logOutUser()
         .then(() => dispatch(logOutCurrentUser()))
+        .fail(errors => dispatch(receiveErrors(errors)))
+}
+export const signUpUser = user => dispatch => {
+    return UserAuthUtil.signUpUser(user)
+        .then(user => dispatch(receiveCurrentUser(user)))
+        .fail(errors => dispatch(receiveErrors(errors)))
 }
