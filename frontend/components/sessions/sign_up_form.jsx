@@ -16,27 +16,30 @@ class SignUpForm extends React.Component {
     }
 
     handleSubmit(){
-        this.props.formAction(this.state)
+        this.props.FormAction(this.state)
     }
 
     render(){
         return <div id="signupform">
             <h1>Sign Up</h1>
             <form onSubmit={this.handleSubmit} >
-                <label>First Name
-                    <input
-                        type="text"
-                        value={this.state.first_name}
-                        onChange={this.update("first_name")}
+                <ul className="names">
+                    <label>First Name
+                        <input
+                            type="text"
+                            value={this.state.first_name}
+                            onChange={this.update("first_name")}
+                            />
+                    </label>
+                    <label>Last Name
+                        <input
+                            type="text"
+                            value={this.state.last_name}
+                            onChange={this.update("last_name")}
                         />
-                </label>
-                <label>Last Name
-                    <input
-                        type="text"
-                        value={this.state.last_name}
-                        onChange={this.update("last_name")}
-                    />
-                </label>
+                    </label>
+                </ul>
+                <ul className="names">
                 <label>Email
                     <input
                         type="text"
@@ -51,6 +54,7 @@ class SignUpForm extends React.Component {
                         onChange={this.update("password")}
                     />
                 </label>
+                </ul>
                 <label> Birthday
                     <input
                         type="date"
@@ -58,6 +62,7 @@ class SignUpForm extends React.Component {
                         onChange={this.update("birthday")}
                     />
                 </label>
+                <input type="submit" value="Create Account"/>
             </form>
         </div>
     }
