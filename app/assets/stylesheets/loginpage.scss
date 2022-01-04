@@ -1,0 +1,144 @@
+#signupform {
+    position: fixed;
+    top: 30%;
+    width: 550px;
+    left: 30%;
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-bottom: 40px;
+    padding-top: 30px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px black, 3em 3em 3em black;
+ }
+
+ #signupform h1{
+    padding-bottom: 20px;
+ }
+
+ #buttonContainer {
+     width: 250px;
+     height: 50px;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+
+
+ }
+
+ header {
+     font-size: 600%;
+     
+
+ }
+ div h1 {
+    font-size: 300%;
+    color: blue;
+ }
+
+
+ div p {
+     color: darkgray;
+     font-size: 185%;
+ }
+
+ .LogIn {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    top: 200px;
+    left: 30px;
+
+ }
+
+ #loginform{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+    padding: 20%;
+    left: 70%;
+    border-radius: 8px;
+    border: 1px solid #999999;
+    position:relative;
+    background: lightgray;
+    width: 300px;
+    font-size: 30px;
+    box-shadow: 3px 3px 3px #999999, 3em 3em 3em #999999;
+    
+ }
+ .sudoButton{
+     text-decoration: none;
+     background-color: limegreen;
+     padding: 4px;
+    //  padding-top: 15px;
+     position: relative;
+     top: 10px;
+     border-radius: 8px;
+     height: 50px;
+     width: 250px;
+     font-weight: 600;
+     color: white;
+     text-align: center;
+ }
+ .sudoButton:hover{
+     background-color: darkgreen;
+ }
+
+ p {
+     margin-top: 10px;
+ }
+
+ #loginheader{
+    position: relative;
+    left: 5%;
+    background-color: transparent;
+ }
+
+ button {
+     background-color: blue;
+     border: blue;
+     border: 1px darkgrey;
+     height: 60px;
+     width: 260px;
+     border-radius: 8px;
+     font-size: 30px;
+     margin-top: 15px;
+     margin-bottom: 9px;
+     color: white;
+ }
+ button:hover {
+     background-color: darkblue;
+     cursor: pointer;
+ }
+
+ input[type=text] {
+     margin-bottom: 7px;
+     border-radius: 8px;
+     width: 250px;
+     height: 40px;
+     font-size: 30px;
+ }
+ input[type=password] {
+     margin-top: 7px;
+     border-radius: 8px;
+     width: 250px;
+     height: 40px;
+     font-size: 30px;
+ }
+ 
+ input[type=date] {
+     margin-top: 7px;
+     border-radius: 8px;
+     width: 250px;
+     height: 40px;
+     font-size: 30px;
+ }
+
+ #signupform {
+     background-color: #999999;
+ }
+
+
+
+ 
+

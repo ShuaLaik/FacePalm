@@ -1,6 +1,5 @@
 import { connect } from "react-redux"
-import { logInUser } from "../../actions/session_actions"
-import { logOutUser } from "../../util/user_auth_util"
+import { logInUser, logOutUser } from "../../actions/session_actions"
 import LogInForm from "./log_in_form"
 
 const mSTP = state => ({

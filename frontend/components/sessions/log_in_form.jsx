@@ -46,14 +46,15 @@ class LogInForm extends React.Component {
                     <Link className="sudoButton"to="/signup">Create User</Link>
                 </div>
             </form>
+            {this.HandleLogOut(this.props.session, this.props.logOutUser)}
 
         </div>
     }
 }
 
-const HandleLogOut = () => {
-    if (this.sessions !== null) {
-        return <button onClick={() => this.props.logOutUser}>LogOut</button>;
+const HandleLogOut = (session, logOutUser) => {
+    if (session !== null) {
+        return <button onClick={() => logOutUser()}>LogOut</button>;
     } else {
         return <div></div>;
     }
