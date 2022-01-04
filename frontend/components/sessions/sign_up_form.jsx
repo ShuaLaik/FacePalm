@@ -16,6 +16,7 @@ class SignUpForm extends React.Component {
     }
 
     handleSubmit(){
+        e.preventDefault()
         this.props.FormAction(this.state)
     }
 
@@ -24,45 +25,51 @@ class SignUpForm extends React.Component {
             <h1>Sign Up</h1>
             <form onSubmit={this.handleSubmit} >
                 <ul className="names">
-                    <label>First Name
+                    <label>
                         <input
                             type="text"
+                            placeholder="First Name"
                             value={this.state.first_name}
                             onChange={this.update("first_name")}
                             />
                     </label>
-                    <label>Last Name
+                    <label>
                         <input
                             type="text"
+                            placeholder="Last Name"
                             value={this.state.last_name}
                             onChange={this.update("last_name")}
                         />
                     </label>
                 </ul>
                 <ul className="names">
-                <label>Email
+                <label>
                     <input
                         type="text"
+                        placeholder="Email"
                         value={this.state.email}
                         onChange={this.update("email")}
                     />
                 </label>
-                <label>Password
+                <label>
                     <input
                         type="password"
+                        placeholder="Password"
                         value={this.state.password}
                         onChange={this.update("password")}
                     />
                 </label>
                 </ul>
-                <label> Birthday
+                
+                <label>
                     <input
                         type="date"
                         value={this.state.birthday}
                         onChange={this.update("birthday")}
                     />
                 </label>
-                <input type="submit" value="Create Account"/>
+                <hr size="1px" width="300px" />
+                <button value="submit">Create Profile</button>
             </form>
         </div>
     }

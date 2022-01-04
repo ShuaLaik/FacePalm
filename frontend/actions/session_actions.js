@@ -1,4 +1,4 @@
-export * as UserAuthUtil from "../util/user_auth_util"
+import * as UserAuthUtil from "../util/user_auth_util"
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER"
 export const LOG_OUT_CURRENT_USER = "LOG_OUT_CURRENT_USER"
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS"
@@ -26,7 +26,7 @@ export const logOutUser = () => dispatch => {
         .fail(errors => dispatch(receiveErrors(errors)))
 }
 export const signUpUser = user => dispatch => {
-    return UserAuthUtil.signUpUser(user)
+    return UserAuthUtil.createUser(user)
         .then(user => dispatch(receiveCurrentUser(user)))
         .fail(errors => dispatch(receiveErrors(errors)))
 }
