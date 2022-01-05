@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 
 class Homepage extends React.Component{
     constructor(props){
@@ -9,7 +10,8 @@ class Homepage extends React.Component{
     render(){
         const user = this.props.users[this.props.currentUser]
         return <div>
-            <h1>{user.first_name} {user.last_name}</h1>
+            
+            <Link to={`profile/${this.props.currentUser}`}><h1>{user.first_name} {user.last_name}</h1></Link>
             {this.HandleLogOut(this.props.session, this.props.logOutUser)}
         </div>
     }

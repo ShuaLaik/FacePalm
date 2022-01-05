@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 
 class SignUpForm extends React.Component {
@@ -27,6 +27,7 @@ class SignUpForm extends React.Component {
     }
 
     render(){
+        if (!this.props.session) {
         return <div id="signupform">
             <ul className="head">
             <ul>
@@ -86,6 +87,9 @@ class SignUpForm extends React.Component {
                 <button value="submit">Create Profile</button>
             </form>
         </div>
+        } else {
+            return <Redirect to="/" />
+        } 
     }
 }
 

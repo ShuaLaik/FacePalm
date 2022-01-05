@@ -12,7 +12,8 @@ const mSTP = (state) => ({
         birthday: "2000-01-01"
 
     },
-    formType: "Sign Up"
+    formType: "Sign Up",
+    session: state.sessions.id
 })
 const mDTP = dispatch => ({
     FormAction: user => dispatch(signUpUser(user)),
