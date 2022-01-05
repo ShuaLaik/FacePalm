@@ -1,0 +1,64 @@
+#logo {
+ height: 42px;
+ width: 47px;
+ padding-left: 15px;
+}
+#notiflogo{
+    height:37px;
+    width: 42px;
+}
+
+#nav-banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 1px 1px 1px #999999, 0em 0.0001em 0.05em #999999;
+    button{
+        font-size: 15px;
+        height: 37px;
+        width: 80px;
+        background-color: black;
+        padding-right: 20px;
+        margin-left: 1%;
+    }
+    input{
+        height: 30px;
+        width: 300px;
+        font-size: 10px;
+        color: black;
+        margin-top: 4px;
+        border-radius: 16px;
+    }
+    Link{
+        font-size: 20px;
+    }
+    .banner-text{
+        font-size: 20px;
+        text-decoration: none;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+        color: black;
+    }
+    a{
+        text-decoration: none;;
+    }
+    img, input, button, .banner-text{
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+    img{
+        padding-top: 10px;
+        padding-bottom:10px;
+    }
+}
+.inner-banner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // width: 350px;
+    margin-right: 10px;
+}
+
+

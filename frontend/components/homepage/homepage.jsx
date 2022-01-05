@@ -9,10 +9,22 @@ class Homepage extends React.Component{
 
     render(){
         const user = this.props.users[this.props.currentUser]
-        return <div>
-            
-            <Link to={`profile/${this.props.currentUser}`}><h1>{user.first_name} {user.last_name}</h1></Link>
-            {this.HandleLogOut(this.props.session, this.props.logOutUser)}
+        return <div id="nav-banner">
+            <ul className="inner-banner">
+            <img id="logo" src={window.smlogoURL}/>
+                <form>
+                    <input type="text" disabled placeholder="Search - Not Implemented"/>
+                </form>
+            </ul>
+            <ul className="inner-banner">
+            </ul>
+            <ul className="inner-banner">
+                <Link 
+                    to={`profile/${this.props.currentUser}`}
+                ><h1 className="banner-text">{user.first_name}</h1></Link>
+                <img id="notiflogo" src={window.notiflogoURL}/>
+                {this.HandleLogOut(this.props.session, this.props.logOutUser)}
+            </ul>
         </div>
     }
 }
