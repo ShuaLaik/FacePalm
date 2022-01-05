@@ -7,7 +7,6 @@ class Homepage extends React.Component{
     }
 
     render(){
-        debugger;
         const user = this.props.users[this.props.currentUser]
         return <div>
             <h1>{user.first_name} {user.last_name}</h1>

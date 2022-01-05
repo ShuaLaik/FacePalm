@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 class SignUpForm extends React.Component {
@@ -8,7 +9,12 @@ class SignUpForm extends React.Component {
         this.state = this.props.user
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-
+    componentDidMount(){
+        this.props.removeErrors();
+    }
+    componentWillUnmount(){
+        this.props.removeErrors();
+    }
     update(field){
         return (e) => {
             this.setState({ [field]: e.currentTarget.value })
@@ -22,7 +28,14 @@ class SignUpForm extends React.Component {
 
     render(){
         return <div id="signupform">
-            <h1>Sign Up</h1>
+            <ul className="head">
+            <ul>
+                <h4>Sign Up</h4>
+                <p>It's quick and easy</p>
+            </ul>
+            <Link to="/" className="closeWindow" >X</Link>
+            </ul>
+            <hr size="1px" width="418px" />
             <form onSubmit={this.handleSubmit} >
                 <ul className="names">
                     <label>
@@ -42,7 +55,7 @@ class SignUpForm extends React.Component {
                         />
                     </label>
                 </ul>
-                <ul className="names">
+                <ul className="names" id="emailpassword">
                 <label>
                     <input
                         type="text"
@@ -62,13 +75,14 @@ class SignUpForm extends React.Component {
                 </ul>
                 
                 <label>
+                    <h3>Birthday:</h3>
                     <input
                         type="date"
                         value={this.state.birthday}
                         onChange={this.update("birthday")}
                     />
                 </label>
-                <hr size="1px" width="300px" />
+                <h5>By Signing up, you agree to all of the following terms: none. All rights reserved©</h5>
                 <button value="submit">Create Profile</button>
             </form>
         </div>

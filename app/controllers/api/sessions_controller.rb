@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
             log_in!(@user)
             render "/api/users/show"
         else
-            render json: @user.errors.fullmessages, status: 422
+            render json: ["Invalid Email or Password"], status: 401
         end
     end
 
