@@ -1,8 +1,38 @@
 #profile-page{
-    background: linear-gradient(to bottom, black, white);
+    background: linear-gradient(to bottom, rgb(36, 214, 116) 20%, white 40%, white);
     display: flex;
     flex-direction: column;
     align-items: center;
+    #top-of-profile{
+        height: 500px;
+    }
+    button{
+        background-color: gray;
+        height: 40px;
+        width: 200px;
+        position: relative;
+        left: 172%;
+        top: 68%;
+        font-size: 20px;
+    }
+    .selected{
+        border-bottom: 2px solid rgba(55, 55, 255, 0.959);
+        color:rgba(55, 55, 255, 0.959)
+    }
+    li:hover{
+        cursor: pointer;
+        background: lightgray
+    }
+    li{
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        width:  50px;
+        padding-bottom: 10px;
+    }
+    button:hover{
+        background-color: darkgray;
+    }
     #cover{
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
@@ -11,8 +41,8 @@
         object-fit: cover;
     }
     #profile{
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         border-radius: 50%;
         object-fit: cover;
         position: relative;
@@ -21,11 +51,23 @@
         border: 2px solid grey;
         
     }
+    ul{
+        align-items: baseline;
+        padding-left: 10px;
+    }
+    .options-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        width: 300px;
+    }
     #main-ul{
         display: flex;
         flex-direction: row;
+        height: 150px;
+
         p {
-            font-size: 60px;
+            font-size: 40px;
             font-weight: 700;
             position: relative;
             left: 25px;

@@ -16,6 +16,10 @@ const receiveErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
 })
+export const removeErrors = () => ({
+    type: REMOVE_ERRORS
+})
+
 export const logInUser = user => dispatch => {
     return UserAuthUtil.logInUser(user)
     .then((user => dispatch(receiveCurrentUser(user))), (errors => dispatch(receiveErrors(errors.responseJSON))))
@@ -28,6 +32,3 @@ export const signUpUser = user => dispatch => {
     return UserAuthUtil.createUser(user)
     .then((user => dispatch(receiveCurrentUser(user))), (errors => dispatch(receiveErrors(errors.responseJSON))))
 }
-export const removeErrors = () => ({
-    type: REMOVE_ERRORS
-})

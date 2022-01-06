@@ -3,9 +3,22 @@
  width: 47px;
  padding-left: 15px;
 }
+#banner-img{
+    height: 35px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    left: 5px;
+    padding: 0px;
+}
+// #banner-img:hover{
+//     border: 1px solid rgba(55, 55, 255, 0.959);
+// }
 #notiflogo{
     height:37px;
     width: 42px;
+
 }
 
 #nav-banner{
@@ -39,9 +52,19 @@
         font-family: 'Roboto', sans-serif;
         font-weight: 100;
         color: black;
+        
     }
     a{
-        text-decoration: none;;
+        padding-top: 0px;
+        border-radius: 60px;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    a:hover{
+        background-color: rgba(218, 218, 218, 0.959);
     }
     img, input, button, .banner-text{
         padding-left: 6px;
@@ -50,6 +73,7 @@
     img{
         padding-top: 10px;
         padding-bottom:10px;
+        
     }
 }
 .inner-banner{

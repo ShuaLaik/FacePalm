@@ -8,9 +8,9 @@ import ProfileContainer from "./profile/profile_container";
 
 const App = ( { store } ) => {
     return (<div>
-        <Route path="/" component={LogInFormContainer}/>
-        <Route path="/signup" component={SignUpFormContainer}/>
         <AuthRoute path="/" component={HomepageContainer} />
+        <Route path="/login" component={LogInFormContainer}/>
+        <Route path="/signup" component={SignUpFormContainer}/>
         <Switch>
             <AuthRoute path="/profile/:id" component={ProfileContainer}/>
         </Switch>
