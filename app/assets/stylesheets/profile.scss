@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     #top-of-profile{
-        height: 500px;
+        height: 504px;
     }
     button{
         background-color: gray;
@@ -21,21 +21,28 @@
     }
     li:hover{
         cursor: pointer;
-        background: lightgray
+        background: lightgray;
+        border-bottom: 2px solid rgba(55, 55, 255, 0.959);
+        
     }
     li{
         font-weight: 700;
         display: flex;
         justify-content: center;
-        width:  50px;
+        width:  60px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
         padding-bottom: 10px;
+        padding-top: 5px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
     button:hover{
         background-color: darkgray;
     }
     #cover{
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
         width: 1000px;
         height: 300px;
         object-fit: cover;
@@ -58,12 +65,15 @@
     .options-bar {
         display: flex;
         flex-direction: row;
-        justify-content:center;
+        justify-content: space-around;
         width: 300px;
+        position: relative;
+        left: 23px;
     }
     #main-ul{
         display: flex;
         flex-direction: row;
+        // justify-content: space-around;
         height: 150px;
 
         p {

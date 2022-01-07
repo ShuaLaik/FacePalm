@@ -6,6 +6,7 @@ class Profile extends React.Component {
         super(props)
         this.state = {
             posts: "selected",
+            friends: "",
             and: "",
             more: "",
             to: "",
@@ -28,7 +29,6 @@ class Profile extends React.Component {
     }
 
     render(){
-        if (!this.props.pageUser) return null;
         const { currentUser, pageUser} = this.props;
         let button = "Acquaintance"
         currentUser === pageUser.id ? button = "Edit Profile" : null;
@@ -50,6 +50,10 @@ class Profile extends React.Component {
                         className={this.state.posts}
                         >Posts</li>
                         <li
+                            onClick={() => this.handleSelect("friends")}
+                        className={this.state.friends}
+                        >Friends</li>
+                        <li
                             onClick={() => this.handleSelect("and")}
                             className={this.state.and}
                         >And</li>
@@ -68,7 +72,7 @@ class Profile extends React.Component {
                     </ul>
                     </div>
             </div>
-            <Link to="/profile/5">Link Link!</Link>
+            {/* <Link to="/profile/5">Link Link!</Link> */}
         </div>
     }
 }
