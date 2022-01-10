@@ -1,12 +1,137 @@
 #profile-page{
+    
     background: linear-gradient(to bottom, rgb(36, 214, 116) 20%, white 40%, white);
     display: flex;
     flex-direction: column;
     align-items: center;
-    #top-of-profile{
+    #top-profile{
+        margin-top: 62px;
         height: 504px;
     }
-    button{
+    .post-item{
+        border-radius: 8px;
+        border-left: 1px solid rgb(230, 230, 230);
+        border-right: 1px solid rgb(230, 230, 230);
+        border-top: 0.5px solid rgb(230, 230, 230);
+        border-bottom: 3px solid rgb(230, 230, 230);
+        background-color: white;
+        padding: 5px;
+        margin-bottom: 10px;
+        p{
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+        *{
+            margin-left: 2px;
+            margin-top: 5px;
+        }
+        h4{
+            color: black;
+            font-size: 18px;
+        }
+        ul{
+            align-items:flex-start;
+            display: flex;
+            flex-direction: row;
+        }
+        ol{
+            position: relative;
+            bottom: 3px;
+        }
+        textarea{
+            resize:none;
+            height: 40px;
+            max-height: 300px;
+            width: 475px;
+            font-size: 30px;
+            border: none;
+        }
+        textarea:hover{
+            cursor: pointer;
+        }
+        input[type=submit]{
+            
+            height: 30px;
+            width: 120px;
+            font-weight: 100;
+            font-size: 20px;
+            position: relative;
+            left: 360px;
+        }
+        input[type=submit]:hover{
+            background-color: lightgray;
+            
+        }
+        #profimg{
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+    #bottom-profile{
+        display: flex;
+        position: relative;
+        left: 3.2%;
+        flex-direction: row;
+        margin-top: 20px;
+        // justify-content:space-evenly;
+        background-color: rgb(240, 242, 245);
+        .left-container{
+            position: sticky;
+            top: 72px;
+            max-height: 300px;
+            border-left: 1px solid rgb(230, 230, 230);
+        border-right: 1px solid rgb(230, 230, 230);
+        border-top: 0.5px solid rgb(230, 230, 230);
+        border-bottom: 3px solid rgb(230, 230, 230);
+            h1{
+                // position: sticky;
+                font-size:30px;
+                font-weight: 300;
+                font-family: 'Roboto', sans-serif;
+                color: black;
+            }
+            button{
+                width: 320px;
+                height: 35px;
+                font-size: 20px;;
+                background-color: darkgrey;
+            }
+            *{
+                margin: 10px;
+            }
+            p{
+                font-weight: 300;
+                width: 320px;
+                font-size: 25px;
+                text-align: center;
+                margin-left: 10px;
+            }
+            h4{
+                font-weight: 300;
+                width: 320px;
+                font-size: 25px;
+                text-align: left;
+                margin-left: 10px;
+            }
+            background: white;
+            width: 347px;
+            border-radius: 8px;
+            margin-right: 5px;
+        }
+        .right-container{
+            width: 596px;
+            border-radius: 8px;
+            margin-left: 5px;
+            h1{
+                display: flex;
+                justify-content: center;
+                color: black;
+            }
+        }
+    }
+    #editbutton{
         background-color: gray;
         height: 40px;
         width: 200px;
@@ -22,7 +147,7 @@
     li:hover{
         cursor: pointer;
         background: lightgray;
-        border-bottom: 2px solid rgba(55, 55, 255, 0.959);
+        border-bottom: 2px solid darkgrey;
         
     }
     li{
@@ -86,3 +211,4 @@
     }
 
 }
+

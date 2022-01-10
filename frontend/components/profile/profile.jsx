@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PostIndexContainer from "./post_index_container";
+import SidebarContainer from "./sidebar_container";
 
 class Profile extends React.Component {
     constructor(props){
@@ -33,13 +35,13 @@ class Profile extends React.Component {
         let button = "Acquaintance"
         currentUser === pageUser.id ? button = "Edit Profile" : null;
         return <div id="profile-page">
-            <div id="top-of-profile">
+            <div id="top-profile">
                 <img id="cover" src="https://i.ytimg.com/vi/ScPOKi2R-8Q/maxresdefault.jpg"/>
                 <div id="main-ul">
                     <img id="profile" src="https://nypost.com/wp-content/uploads/sites/2/2022/01/the-weeknd-new-album-2.jpg?quality=90&strip=all"/>
                     <p>{pageUser.first_name} {pageUser.last_name}</p>
                     <ul>
-                        <button disabled={true}>{button}</button>
+                        <button disabled={true} id="editbutton">{button}</button>
                     </ul>
                 </div>
                     <hr size="1px" width="925px" />
@@ -71,8 +73,11 @@ class Profile extends React.Component {
                         >Come</li>
                     </ul>
                     </div>
+            <div id="bottom-profile">
+                <SidebarContainer pageUser={pageUser}/>
+                <PostIndexContainer pageUser={pageUser}/>
             </div>
-            {/* <Link to="/profile/5">Link Link!</Link> */}
+            </div>
         </div>
     }
 }

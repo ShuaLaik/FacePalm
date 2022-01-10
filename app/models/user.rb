@@ -6,6 +6,16 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
+    has_many :posts,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Post
+
+    # belongs_to :post,
+    # primary_key: :id,
+    # foreign_key: :id,
+    # class_name: :Post
+
     def self.find_by_credentials(email, password)
         @user = User.find_by(email: email)
         if @user && @user.is_password?(password)

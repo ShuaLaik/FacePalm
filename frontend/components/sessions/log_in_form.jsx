@@ -8,6 +8,7 @@ class LogInForm extends React.Component {
         this.state = this.props.user;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.HandleLogOut = HandleLogOut.bind(this);
+        this.handleDemo - this.handleDemo.bind(this);
     }
 
     componentWillUnmount(){
@@ -19,7 +20,12 @@ class LogInForm extends React.Component {
             this.setState({ [field]: e.currentTarget.value });
         };
     }
-
+    handleDemo(){
+        return (e) => {
+        this.setState({username: "user@example.com", password: "password"})
+        this.props.logInUser(this.state);
+        }
+    }
     handleSubmit(e){
         e.preventDefault();
         this.props.logInUser(this.state);
@@ -72,7 +78,10 @@ class LogInForm extends React.Component {
                                 onChange={this.update("password")}
                             />
                         </label>
-                        <button value="submit" disabled={disabled}>Log In</button>
+                        <ul id="Log in Buttons">
+                            <button id="small-button" value="submit" disabled={disabled}>Log In</button>
+                            <button id="small-button" value="submit" onClick={this.handleDemo} disabled={disabled}>Demo User</button>
+                        </ul>
                         <hr size="1px" width="300px"/>
                         <div id="buttonContainer">
                             <Link className="sudoButton" to="/signup" disabled={disabled}>Create User</Link>
