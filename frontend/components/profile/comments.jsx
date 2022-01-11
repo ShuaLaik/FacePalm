@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Comments extends React.Component {
 
@@ -22,7 +23,7 @@ class Comments extends React.Component {
                     <div className="names">
                     <ul >
                         <ol>
-                            <h4>{commentAuthor.first_name} {commentAuthor.lastName}</h4>
+                            <Link to={`/profile/${commentAuthor.id}`}>{commentAuthor.first_name} {commentAuthor.lastName}</Link>
                         </ol>
                     </ul>
                     <p>{comment.body}</p>

@@ -17,6 +17,9 @@ class Profile extends React.Component {
         }
         this.handleSelect = this.handleSelect.bind(this)
     }
+    componentDidUpdate(){
+        window.scrollTo(0,0);
+    }
 
     handleSelect(type){
         Object.keys(this.state).map(key => {

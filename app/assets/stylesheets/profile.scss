@@ -47,10 +47,14 @@
                 white-space: pre-wrap;
 
             }
-            h4{
+            a{
             color: black;
             font-size: 14px;
             font-weight: 300;
+            text-decoration: none;
+            }
+            a:hover{
+                color: rgba(82, 82, 248, 0.959);
             }
             h2{
             color: black;
