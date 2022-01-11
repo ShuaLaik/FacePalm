@@ -32,8 +32,6 @@ class PostForm extends React.Component{
     }
 
     render(){
-        
-        // debugger;
         const { postUser } = this.props
         return <div className="post-item">
             <ul>

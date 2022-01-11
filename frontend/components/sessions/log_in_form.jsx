@@ -8,7 +8,7 @@ class LogInForm extends React.Component {
         this.state = this.props.user;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.HandleLogOut = HandleLogOut.bind(this);
-        this.handleDemo - this.handleDemo.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     componentWillUnmount(){
@@ -20,11 +20,9 @@ class LogInForm extends React.Component {
             this.setState({ [field]: e.currentTarget.value });
         };
     }
-    handleDemo(){
-        return (e) => {
-        this.setState({username: "user@example.com", password: "password"})
-        this.props.logInUser(this.state);
-        }
+    handleDemo(e){
+        e.preventDefault();
+        this.props.logInUser({email: "user@example.com", password: "password" });
     }
     handleSubmit(e){
         e.preventDefault();
@@ -78,9 +76,9 @@ class LogInForm extends React.Component {
                                 onChange={this.update("password")}
                             />
                         </label>
-                        <ul id="Log in Buttons">
+                        <ul id="log-in-buttons">
                             <button id="small-button" value="submit" disabled={disabled}>Log In</button>
-                            <button id="small-button" value="submit" onClick={this.handleDemo} disabled={disabled}>Demo User</button>
+                            <button id="small-button" onClick={this.handleDemo} disabled={disabled}>Demo User</button>
                         </ul>
                         <hr size="1px" width="300px"/>
                         <div id="buttonContainer">

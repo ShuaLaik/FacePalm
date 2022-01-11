@@ -11,10 +11,10 @@ class User < ApplicationRecord
     foreign_key: :user_id,
     class_name: :Post
 
-    # belongs_to :post,
-    # primary_key: :id,
-    # foreign_key: :id,
-    # class_name: :Post
+    has_one :profile_img,
+    primary_key: :profile_img_id,
+    foreign_key: :id,
+    class_name: :Image
 
     def self.find_by_credentials(email, password)
         @user = User.find_by(email: email)

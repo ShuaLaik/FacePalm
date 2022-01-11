@@ -9,13 +9,14 @@ class PostIndex extends React.Component{
         this.props.fetchPosts(this.props.pageUser.id)
     }
     componentDidUpdate(prevProps){
-        if (prevProps.posts === this.props.posts) {
+        if (prevProps.posts === this.props.posts || prevProps.pageUser !== this.props.pageUser) {
             this.props.fetchPosts(this.props.pageUser.id)
         }
     }
     render(){
-        let { posts, pageUser, editPost, deletePost } = this.props
+        let { posts, pageUser, editPost, deletePost, fetchComments } = this.props
         posts.reverse();
+        const filteredPosts = posts.filter(post => post.user_id === pageUser.id)
         let postForm = <Inbetween postUser={pageUser} />;
         this.props.currentUser === pageUser.id ? postForm = <Inbetween postUser={pageUser} /> : postForm = <div></div>
         // if (posts.length === 0) {
@@ -25,8 +26,9 @@ class PostIndex extends React.Component{
         // }
         return <div className="right-container">
             {postForm}
-            {posts.map((post) => {
+            {filteredPosts.map((post) => {
                 return <PostIndexItem 
+                fetchComments={fetchComments}
                 post={post} 
                 postUser={pageUser} 
                 deletePost={deletePost}

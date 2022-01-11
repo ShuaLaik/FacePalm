@@ -17,9 +17,7 @@ class Profile extends React.Component {
         }
         this.handleSelect = this.handleSelect.bind(this)
     }
-    // componentDidMount(){
-    //     this.props.fetchUser(this.props.match.params.id)
-    // }
+
     handleSelect(type){
         Object.keys(this.state).map(key => {
             if (type === key) {

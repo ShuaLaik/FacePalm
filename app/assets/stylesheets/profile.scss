@@ -17,6 +17,46 @@
         background-color: white;
         padding: 5px;
         margin-bottom: 10px;
+        .full-comment{
+            display: flex;
+            flex-direction: column;
+            justify-content: column;
+        }
+        .time{
+            display: flex;
+            justify-content: right;
+        }
+        .comment{
+            display: flex;
+            justify-content: row;
+            .names{
+                background: #f0f2f5;
+                border-radius: 25px;
+            }
+            img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                position: relative;
+                top: 10px;
+            }
+            p{
+                font-size: 20px;
+                padding-right: 15px;
+                padding-top: 0px;
+                white-space: pre-wrap;
+
+            }
+            h4{
+            color: black;
+            font-size: 14px;
+            font-weight: 300;
+            }
+            h2{
+            color: black;
+            font-size: 10px;
+        }
+        }
         p{
             margin-left: 15px;
             margin-bottom: 15px;
@@ -28,6 +68,10 @@
         h4{
             color: black;
             font-size: 18px;
+        }
+        h2{
+            color: black;
+            font-size: 14px;
         }
         ul{
             align-items:flex-start;
