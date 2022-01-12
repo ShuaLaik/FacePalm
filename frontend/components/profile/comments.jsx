@@ -16,7 +16,6 @@ class Comments extends React.Component {
             {filteredComments.map(comment => {
                 const commentAuthor = users[comment.user_id];
                 if (!commentAuthor) return null;
-                debugger
                 return <div className="full-comment">
                     <div className="comment">
                         <img src="https://nypost.com/wp-content/uploads/sites/2/2022/01/the-weeknd-new-album-2.jpg?quality=90&strip=all" />

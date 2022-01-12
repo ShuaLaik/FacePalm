@@ -10,7 +10,7 @@
     }
     .post-item{
         border-radius: 8px;
-        border-left: 1px solid rgb(230, 230, 230);
+        border-left: 1px solid rgb(184, 184, 184);
         border-right: 1px solid rgb(230, 230, 230);
         border-top: 0.5px solid rgb(230, 230, 230);
         border-bottom: 3px solid rgb(230, 230, 230);
@@ -22,10 +22,14 @@
             flex-direction: column;
             justify-content: column;
         }
+        .post-left{
+            margin-left: 0px;
+        }
         .time{
             display: flex;
             justify-content: right;
         }
+
         .comment{
             display: flex;
             justify-content: row;
@@ -231,9 +235,23 @@
         border: 2px solid grey;
         
     }
+    .sudo-text{
+        border: none;
+        border-radius: 16px;
+        width: 480px;
+        color: black;
+        height: 40px;
+        text-indent: 20px;
+        text-align: left;
+        background-color: #f0f2f5;
+    }
+    .sudo-text:hover{
+        background-color: #f0f2f5;
+        cursor: pointer;
+    }
     ul{
         align-items: baseline;
-        padding-left: 10px;
+        padding-left: 3px;
     }
     .options-bar {
         display: flex;

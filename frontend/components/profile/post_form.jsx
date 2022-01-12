@@ -39,7 +39,8 @@ class PostForm extends React.Component{
                     <img id="profimg" src="https://nypost.com/wp-content/uploads/sites/2/2022/01/the-weeknd-new-album-2.jpg?quality=90&strip=all" />
                 </ul>
                 <ul id="post-right">
-            <form onSubmit={this.handleSubmit}>
+                    <button className="sudo-text" onClick={() => this.props.modal("CreatePost")}>Write Post...</button>
+            {/* <form onSubmit={this.handleSubmit}>
                 <textarea 
                 onChange={this.update("body")} 
                 value={this.state.body} 
@@ -48,7 +49,7 @@ class PostForm extends React.Component{
                 <input className={this.state.visible} 
                 type="submit" 
                 value={this.props.formType}/>
-            </form>
+            </form> */}
 
                 </ul>
             </ul>

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PostIndexContainer from "./post_index_container";
 import SidebarContainer from "./sidebar_container";
+import ModalsContainer from "../modals/modals_container";
 
 class Profile extends React.Component {
     constructor(props){
@@ -17,9 +18,9 @@ class Profile extends React.Component {
         }
         this.handleSelect = this.handleSelect.bind(this)
     }
-    componentDidUpdate(){
-        window.scrollTo(0,0);
-    }
+    // componentDidUpdate(){
+    //     window.scrollTo(0,0);
+    // }
 
     handleSelect(type){
         Object.keys(this.state).map(key => {
@@ -36,13 +37,14 @@ class Profile extends React.Component {
         let button = "Acquaintance"
         currentUser === pageUser.id ? button = "Edit Profile" : null;
         return <div id="profile-page">
+            <ModalsContainer />
             <div id="top-profile">
                 <img id="cover" src="https://i.ytimg.com/vi/ScPOKi2R-8Q/maxresdefault.jpg"/>
                 <div id="main-ul">
                     <img id="profile" src="https://nypost.com/wp-content/uploads/sites/2/2022/01/the-weeknd-new-album-2.jpg?quality=90&strip=all"/>
                     <p>{pageUser.first_name} {pageUser.last_name}</p>
                     <ul>
-                        <button disabled={true} id="editbutton">{button}</button>
+                        <button onClick={() => this.props.modal("EditUser")} id="editbutton">{button}</button>
                     </ul>
                 </div>
                     <hr size="1px" width="925px" />

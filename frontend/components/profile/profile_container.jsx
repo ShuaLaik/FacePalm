@@ -3,6 +3,7 @@ import { fetchUser } from "../../actions/user_actions"
 import Profile from "./profile"
 import React from 'react'
 import { fetchPosts } from "../../actions/post_actions"
+import { openModal } from "../../actions/modals_actions"
 
 class LoadProfile extends React.Component {
 
@@ -17,10 +18,11 @@ class LoadProfile extends React.Component {
         }
     }
     render() {
-        const { action, pageUser, currentUser, fetchUser, posts } = this.props;
+        const { action, pageUser, currentUser, fetchUser, posts, modal } = this.props;
         if (!pageUser) return null;
         return (
             <Profile
+                modal={modal}
                 action={action}
                 pageUser={pageUser}
                 currentUser={currentUser}
@@ -38,7 +40,8 @@ const mSTP = (state, ownProps) => ({
 })
 const mDTP = dispatch => ({
     fetchUser: userId => dispatch(fetchUser(userId)),
-    fetchPosts: userId => dispatch(fetchPosts(userId))
+    fetchPosts: userId => dispatch(fetchPosts(userId)),
+    modal: form => dispatch(openModal(form))
 })
 
 export default connect(mSTP, mDTP)(LoadProfile)

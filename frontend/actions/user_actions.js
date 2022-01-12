@@ -16,3 +16,8 @@ export const fetchUser = userId => dispatch => {
     errors => dispatch(receiveErrors(errors.responseTEXT)))
         
 }
+
+export const updateUser = user => dispatch => {
+    return UserUtil.updateUser(user)
+        .then(user => dispatch(receiveUser(user)))
+} 

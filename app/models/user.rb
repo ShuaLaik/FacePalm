@@ -6,6 +6,9 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
+    has_one_attached :avatar
+    has_one_attached :cover
+    
     has_many :posts,
     primary_key: :id,
     foreign_key: :user_id,
