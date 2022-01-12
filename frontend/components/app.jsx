@@ -9,6 +9,7 @@ import ModalsContainer from "./modals/modals_container";
 
 const App = ( { store } ) => {
     return (<div>
+        <ModalsContainer />
         <AuthRoute path="/" component={HomepageContainer} />
         <AuthRoute path="/" component={ModalsContainer}/>
         <ProtectedRoute path="/" component={LogInFormContainer}/>

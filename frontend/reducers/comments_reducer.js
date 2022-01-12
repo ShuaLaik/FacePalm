@@ -7,7 +7,7 @@ const CommentsReducer = (prevState = {}, action) => {
         case RECEIVE_COMMENTS:
             return Object.assign({}, newState, action.comments )
         case RECEIVE_COMMENT:
-            return Object.assign({}, prevstate, { [action.comment.id]: action.comment})
+            return Object.assign({}, prevState, { [action.comment.id]: action.comment})
         case REMOVE_COMMENT:
             delete newState[action.commentId]
             return newState;

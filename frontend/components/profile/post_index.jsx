@@ -15,7 +15,7 @@ class PostIndex extends React.Component{
         }
     }
     render(){
-        let { posts, pageUser, editPost, deletePost, fetchComments } = this.props
+        let { posts, pageUser, editPost, deletePost, fetchComments, openModal, currentUser } = this.props
         posts.reverse();
         const filteredPosts = posts.filter(post => post.user_id === pageUser.id)
         let postForm = <Inbetween postUser={pageUser} />;
@@ -29,6 +29,8 @@ class PostIndex extends React.Component{
             {postForm}
             {filteredPosts.map((post) => {
                 return <PostIndexItem 
+                openModal={openModal}
+                currentUser={currentUser}
                 fetchComments={fetchComments}
                 post={post} 
                 postUser={pageUser} 

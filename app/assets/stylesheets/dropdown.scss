@@ -1,0 +1,36 @@
+.three-dots:after{
+  cursor: pointer;
+  color: black;
+  content: '\2807';
+  font-size: 30px;
+  padding: 0 5px;
+}
+.three-dots:active + .dropdown{
+    display: flex;
+}
+.three-dots:hover + .dropdown{
+    display: flex;
+
+}
+
+.dropdown{
+    display: none;
+    border-radius: 8px;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid rgb(233, 233, 233);
+    box-shadow: 1px 1px 1px #e0e0e0, 1px 1px 1em #dfdfdf;
+    button{
+        background-color: rgb(255, 255, 255);
+        border-radius: 8px;
+        padding: 0px;
+        margin: 0px;
+        font-size: 15px;
+        color: black;
+    }
+}
+.dropdown:hover{
+    display: flex;
+}

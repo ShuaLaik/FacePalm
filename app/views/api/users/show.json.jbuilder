@@ -1,4 +1,6 @@
 json.extract! @user, :id, :first_name, :email, :last_name, :bio, :birthday, :favorite_color, :created_at
+json.avatarUrl url_for(@user.avatar)
+# json.coverUrl url_for(user.cover)
     # json.id @user.id
     # json.email @user.email
     # json.first_name @user.first_name

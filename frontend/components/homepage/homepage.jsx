@@ -21,8 +21,8 @@ class Homepage extends React.Component{
             </ul>
             <ul className="inner-banner">
 
-                <Link to={`/profile/${this.props.currentUser}`} >
-                    <img id="banner-img" src="https://nypost.com/wp-content/uploads/sites/2/2022/01/the-weeknd-new-album-2.jpg?quality=90&strip=all" />
+                <Link to={`/profile/${user.id}`} >
+                    <img id="banner-img" src={user.avatarUrl} />
                     <h1 className="banner-text">{user.first_name}</h1>
                     </Link>
                 <img id="notiflogo" src={window.notiflogoURL}/>

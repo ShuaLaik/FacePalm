@@ -31,12 +31,15 @@ class EditUserModal extends React.Component {
     }
 
     render() {
+        let dis = "";
+        { this.state.email === "user@example.com" ? dis = "disabled" : dis = "" }
         return <div className="modal-post-form">
             <ul id="label">
                 <h1>Update Info</h1>
                 <h2 id="close-window" onClick={this.handleClose}>X</h2>
             </ul>
-            <form onSubmit={this.handleSubmit} >
+            <form onSubmit={this.handleSubmit} id="tdf">
+                <div id="modal-edit">
                 <ul id="editinfo">
                     <label>
                         <h3>First name:</h3>
@@ -45,6 +48,7 @@ class EditUserModal extends React.Component {
                             placeholder="First Name"
                             value={this.state.first_name}
                             onChange={this.update("first_name")}
+                            disabled={dis}
                         />
                     </label>
                     <label>
@@ -54,6 +58,8 @@ class EditUserModal extends React.Component {
                             placeholder="Last Name"
                             value={this.state.last_name}
                             onChange={this.update("last_name")}
+                            disabled={dis}
+                            
                         />
                     </label>
                     <label>
@@ -63,6 +69,7 @@ class EditUserModal extends React.Component {
                             placeholder="Email"
                             value={this.state.email}
                             onChange={this.update("email")}
+                            disabled={dis}
                         />
                     </label>
                     <label>
@@ -82,8 +89,17 @@ class EditUserModal extends React.Component {
                         onChange={this.update("birthday")}
                     />
                 </label>
-                <button value="submit">Update Profile</button>
             </ul>
+            <ul>
+                <h3>Bio:</h3>
+                <textarea
+                placeholder="Write Bio Here..."
+                value={this.state.bio}
+                onChange={this.update("bio")}
+                />
+            </ul>
+                </div>
+                <button value="submit">Update Profile</button>
             </form>
         </div>
     }

@@ -8,9 +8,26 @@
         margin-top: 62px;
         height: 504px;
     }
+    #camera{
+        height:40px;
+        width: 40px;
+        background-color: rgb(223, 223, 223);
+        border-radius: 50%;
+        border: 2px solid black;
+        position: absolute;
+        right: 55px;
+        top: 60px;
+        z-index: 50;
+        object-fit:contain;
+
+    }
+    #camera:hover{
+        background-color: rgb(187, 187, 187);
+        cursor: pointer;
+    }
     .post-item{
         border-radius: 8px;
-        border-left: 1px solid rgb(184, 184, 184);
+        border-left: 1px solid rgb(230, 230, 230);
         border-right: 1px solid rgb(230, 230, 230);
         border-top: 0.5px solid rgb(230, 230, 230);
         border-bottom: 3px solid rgb(230, 230, 230);
@@ -25,11 +42,52 @@
         .post-left{
             margin-left: 0px;
         }
-        .time{
+        .post-right{
             display: flex;
             justify-content: right;
         }
+        #post-header{
+            display: flex;
+            justify-content: space-between;
+        }
+        .time{
+            // position: relative;
 
+            // display: flex;
+            // justify-content: right;
+            font-size: 10px;
+        }
+        .comment-section{
+            border-top: 1px solid rgb(221, 220, 220);
+        }
+        .inbetween{
+            display: flex;
+            flex-direction: column;
+        }
+        #comment-form{
+            border-top: 1px solid rgb(221, 220, 220);
+            // border-bottom: 1px solid rgb(221, 220, 220);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            input[type=text]{
+                height: 20px;
+                width: 560px;
+                font-size: 20px;
+            }
+            button{
+                position: relative;
+                bottom: 2px;
+                height: 24px;
+                width: 100px;
+                background-color: rgb(146, 145, 145);
+                font-size: 15px;
+            }
+            button:hover{
+                background-color: rgb(158, 156, 156);
+            }
+        }
         .comment{
             display: flex;
             justify-content: row;
@@ -148,7 +206,10 @@
                 width: 320px;
                 height: 35px;
                 font-size: 20px;;
-                background-color: darkgrey;
+                background-color: rgba(82, 82, 248, 0.959);
+            }
+            button:hover{
+                background-color: rgba(93, 93, 255, 0.959);
             }
             *{
                 margin: 10px;
@@ -184,17 +245,20 @@
         }
     }
     #editbutton{
-        background-color: gray;
+        background-color: rgba(82, 82, 248, 0.959);
         height: 40px;
         width: 200px;
-        position: relative;
-        left: 172%;
+        position: absolute;
+        left: 734px;;
         top: 68%;
         font-size: 20px;
     }
+    #editbutton:hover{
+        background-color: rgba(93, 93, 255, 0.959);
+    }
     .selected{
-        border-bottom: 2px solid rgba(55, 55, 255, 0.959);
-        color:rgba(55, 55, 255, 0.959)
+        border-bottom: 2px solid rgba(82, 82, 248, 0.959);
+        color:rgba(82, 82, 248, 0.959)
     }
     li:hover{
         cursor: pointer;
@@ -214,8 +278,11 @@
         padding-left: 3px;
         padding-right: 3px;
     }
+    button:{
+        background-color: rgba(82, 82, 248, 0.959);
+    }
     button:hover{
-        background-color: darkgray;
+        background-color: rgba(93, 93, 255, 0.959);
     }
     #cover{
         border-bottom-left-radius: 16px;
@@ -271,8 +338,13 @@
             font-size: 40px;
             font-weight: 700;
             position: relative;
-            left: 25px;
+            left: -5px;
             top: 10px;
+        }
+        ol{
+            width: 240px;
+            position: relative;
+            left: 30px;
         }
     }
 

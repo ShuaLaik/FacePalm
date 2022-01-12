@@ -14,7 +14,7 @@ const mSTP = (state, ownProps) => ({
 const mDTP = dispatch => ({
     fetchReplies: commentId => dispatch(fetchReplies(commentId)),
     createComment: comment => dispatch(createComment(comment)),
-    fetchUser: userID => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId))
 })
 
 export default connect(mSTP, mDTP)(Comments)

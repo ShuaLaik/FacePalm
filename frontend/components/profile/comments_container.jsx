@@ -8,10 +8,11 @@ import React from "react"
 class LoadComments extends React.Component {
 
     render() {
-        const { comments, postId, users, fetchComments, fetchReplies, createComment, fetchUser } = this.props;
+        const { comments, postId, users, fetchComments, fetchReplies, createComment, fetchUser, currentUser } = this.props;
         if (!comments) return null;
         return (
             <Comments
+                currentUser={currentUser}
                 comments={comments}
                 postId={postId}
                 users={users}
@@ -25,6 +26,7 @@ class LoadComments extends React.Component {
 
 
 const mSTP = (state, ownProps) => ({
+    currentUser: state.entities.users[state.sessions.id],
     comments: Object.values(state.entities.comments),
     postId: ownProps.postId,
     users: state.entities.users

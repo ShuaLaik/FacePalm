@@ -31,20 +31,29 @@ class Profile extends React.Component {
             }
         })
     }
+    handleProfileModal(){
+        return this.props.modal("EditProfilePic")
+    }
 
     render(){
         const { currentUser, pageUser} = this.props;
         let button = "Acquaintance"
-        currentUser === pageUser.id ? button = "Edit Profile" : null;
+        let camera = <div></div>
+        if (currentUser === pageUser.id) {
+            button = "Edit Profile"
+            camera = <img onClick={() => this.props.modal("EditProiflePic")} id="camera" src={window.cameralogoURL} />
+        }
         return <div id="profile-page">
-            <ModalsContainer />
             <div id="top-profile">
                 <img id="cover" src="https://i.ytimg.com/vi/ScPOKi2R-8Q/maxresdefault.jpg"/>
                 <div id="main-ul">
-                    <img id="profile" src="https://nypost.com/wp-content/uploads/sites/2/2022/01/the-weeknd-new-album-2.jpg?quality=90&strip=all"/>
+                    <ol>
+                        <img id="profile" src={pageUser.avatarUrl}/>
+                        {camera}
+                        <button onClick={() => this.props.modal("EditUser")} id="editbutton">{button}</button>
+                    </ol>
                     <p>{pageUser.first_name} {pageUser.last_name}</p>
                     <ul>
-                        <button onClick={() => this.props.modal("EditUser")} id="editbutton">{button}</button>
                     </ul>
                 </div>
                     <hr size="1px" width="925px" />
