@@ -7,7 +7,6 @@ const UserErrorsReducer = (prevState = [], action) => {
     let newState = Object.assign({}, prevState)
     switch (action.type) {
         case RECEIVE_USER_ERRORS:
-            debugger;
             return ErrorType(action.errors);
         default:
             return prevState;
