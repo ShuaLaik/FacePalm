@@ -36,7 +36,6 @@ class EditProfilePic extends React.Component{
         formData.append("user[first_name]", this.props.user.first_name )
         formData.append("user[last_name]", this.props.user.last_name )
         formData.append("user[id]", this.props.user.id)
-        debugger
         this.props.updateUserPhoto(formData, this.props.user.id)
         this.props.closeModal();
     }
