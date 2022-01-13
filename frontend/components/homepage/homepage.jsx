@@ -17,7 +17,13 @@ class Homepage extends React.Component{
                     <input type="text" disabled={true} placeholder="Search - Not Implemented"/>
                 </form>
             </ul>
-            <ul className="inner-banner">
+            <ul className="inner-banner x2">
+                <a href="https://github.com/ShuaLaik">
+                    <img className="logos"src={window.githublogoURL}/>
+                </a>
+                <a href="https://www.linkedin.com/in/joshualaikowski/">
+                    <img className="logos" src={window.linkedinlogoURL}/>
+                </a>
             </ul>
             <ul className="inner-banner">
 

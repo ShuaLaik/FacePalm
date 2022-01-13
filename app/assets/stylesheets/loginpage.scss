@@ -1,3 +1,7 @@
+#total-form{
+    height: 95vh;
+}
+
 #signupform {
     
     position: fixed;
@@ -11,7 +15,7 @@
     padding-bottom: 35px;
     padding-top: 15px;
     border-radius: 8px;
-    box-shadow: 1px 1px 1px #bdbdbd, 1px 1px 1em #c0bdbd;
+    box-shadow: 1px 1px 1px #cacaca, 1px 1px 1em #c7c7c7;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -127,7 +131,8 @@
  }
 
  div h1 {
-    font-size: 300%;
+    font-size: 350%;
+    font-weight: 300;
     color: rgba(82, 82, 248, 0.959)
  }
 

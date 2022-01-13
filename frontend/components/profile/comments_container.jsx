@@ -1,5 +1,5 @@
 import { connect } from "react-redux"
-import { fetchComments, createComment, fetchReplies } from "../../actions/comment_actions"
+import { fetchComments, createComment, fetchReplies, deleteComment } from "../../actions/comment_actions"
 import { fetchUser } from "../../actions/user_actions"
 import Comments from "./comments"
 import React from "react"
@@ -36,7 +36,8 @@ const mDTP = dispatch => ({
     fetchComments: postId => dispatch(fetchComments(postId)),
     fetchReplies: commentId => dispatch(fetchReplies(commentId)),
     createComment: comment => dispatch(createComment(comment)),
-    fetchUser: userId => dispatch(fetchUser(userId))
+    fetchUser: userId => dispatch(fetchUser(userId)),
+    deleteComment: commentId => dispatch(deleteComment(commentId))
 })
 
 export default connect(mSTP, mDTP)(LoadComments)

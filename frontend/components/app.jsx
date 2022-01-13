@@ -6,6 +6,7 @@ import HomepageContainer from "./homepage/homepage_container"
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import ProfileContainer from "./profile/profile_container";
 import ModalsContainer from "./modals/modals_container";
+import Footer from "./homepage/footer";
 
 const App = ( { store } ) => {
     return (<div>
@@ -17,6 +18,7 @@ const App = ( { store } ) => {
         <Switch>
             <AuthRoute path="/profile/:id" component={ProfileContainer}/>
         </Switch>
+        <ProtectedRoute path="/" component={Footer} />
     </div>)
 }
 

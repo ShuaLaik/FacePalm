@@ -1,4 +1,5 @@
-json.extract! @user, :id, :first_name, :email, :last_name, :bio, :birthday, :favorite_color, :created_at
+json.extract! @user, :id, :first_name, :email, :last_name, :bio, :favorite_color, :created_at
+json.birthday @user.parse_time(@user.birthday)
 json.avatarUrl url_for(@user.avatar)
 # json.coverUrl url_for(user.cover)
     # json.id @user.id

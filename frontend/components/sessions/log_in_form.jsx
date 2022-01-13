@@ -45,7 +45,7 @@ class LogInForm extends React.Component {
         let disabled = "";
         this.props.location.pathname === "/signup"  ? disabled = "disabled": disabled = "";
         if (!this.props.session) {
-        return <div>
+        return <div id="total-form">
             <div className="errors">
                 {this.renderErrors(this.props.sessionErrors)}
             </div>

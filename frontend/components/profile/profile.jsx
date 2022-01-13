@@ -41,7 +41,9 @@ class Profile extends React.Component {
         let camera = <div></div>
         if (currentUser === pageUser.id) {
             button = "Edit Profile"
-            camera = <img onClick={() => this.props.modal("EditProiflePic")} id="camera" src={window.cameralogoURL} />
+            camera = <div id="camera">
+                    <img onClick={() => this.props.modal("EditProiflePic")}  src={window.cameralogoURL} />
+                </div>
         }
         return <div id="profile-page">
             <div id="top-profile">

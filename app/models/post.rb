@@ -21,4 +21,5 @@ class Post < ApplicationRecord
     foreign_key: :post_id,
     class_name: :Image
 
+
 end

@@ -17,6 +17,7 @@ class PostIndexItem extends React.Component{
         this.props.openModal("EditPost");
     }
     editPostButton(){
+        const { postUser, post } = this.props
         if (this.props.currentUser === this.props.post.user_id) {
             return <ul className="post-right">
                 <div className="three-dots"></div>
