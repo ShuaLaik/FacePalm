@@ -24,6 +24,7 @@ class PostForm extends React.Component {
     }
 
     render() {
+        const { user } = this.props
     return <div className="modal-post-form">
             <ul id="label">
                 <h1>Create Post</h1>
@@ -31,7 +32,7 @@ class PostForm extends React.Component {
             </ul>
             <ul id="ul">
                 <ul id="header">
-                    <img id="profimg" src="https://nypost.com/wp-content/uploads/sites/2/2022/01/the-weeknd-new-album-2.jpg?quality=90&strip=all" />
+                    <img id="profimg" src={user.avatarUrl} />
                     <h4>{this.props.user.first_name}</h4>
                 </ul>
                 <ul id="post-right">
