@@ -37,7 +37,7 @@ class Comments extends React.Component {
         if (!filteredComments) return null;
         return <div className="comment-section">
 
-            {filteredComments.reverse().map(comment => {
+            {filteredComments.map(comment => {
                 const commentAuthor = users[comment.user_id];
                 if (!commentAuthor) return null;
                 return <div key={comment.id} className="full-comment">
@@ -47,7 +47,7 @@ class Comments extends React.Component {
                             <div className="names">
                                 <ul>
                                     <ol>
-                                        <Link to={`/profile/${commentAuthor.id}`}>{commentAuthor.first_name} {commentAuthor.lastName}</Link>
+                                        <Link to={`/profile/${commentAuthor.id}`}>{commentAuthor.first_name} {commentAuthor.last_name}</Link>
                                     </ol>
                                 </ul>
                                 <p>{comment.body}</p>

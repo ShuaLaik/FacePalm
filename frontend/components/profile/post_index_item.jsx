@@ -39,7 +39,7 @@ class PostIndexItem extends React.Component{
                     <ul id="post-left">
                         <img id="profimg"src={postUser.avatarUrl}/>
                         <ol>
-                            <h4>{postUser.first_name} {postUser.lastName}</h4>
+                            <h4>{postUser.first_name} {postUser.last_name}</h4>
                             <h2>{post.created_at}</h2>
                         </ol>
                         
