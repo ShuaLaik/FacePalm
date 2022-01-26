@@ -1,7 +1,7 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-      def parse_time(t)
+      def parse_time(t, type)
         time = t.to_s
         y = time[0...4]
         case time[5..6]
@@ -35,7 +35,7 @@ class ApplicationRecord < ActiveRecord::Base
         else
             d = time[8..9]
         end
-        if time.length != 10
+        if type == 1
             if time[11..12].to_i > 12
                 h = time[11..12].to_i - 12
                 am = "pm"

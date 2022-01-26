@@ -1,5 +1,5 @@
 json.extract! user, :id, :email, :first_name, :last_name, :bio, :favorite_color
-json.birthday user.parse_time(user.birthday)
+json.birthday user.parse_time(user.birthday, 2)
 json.avatarUrl url_for(user.avatar)
 # json.coverUrl url_for(user.cover)
     # json.id @user.id

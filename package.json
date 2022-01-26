@@ -12,6 +12,7 @@
     "npm": "8.1.0"
   },
   "scripts": {
+    "start": "webpack --watch --mode=development",
     "postinstall": "webpack"
   },
   "repository": {

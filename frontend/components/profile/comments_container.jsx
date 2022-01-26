@@ -3,23 +3,27 @@ import { fetchComments, createComment, fetchReplies, deleteComment } from "../..
 import { fetchUser } from "../../actions/user_actions"
 import Comments from "./comments"
 import React from "react"
+import { fetchEditPost } from "../../actions/post_actions"
+import { openModal } from "../../actions/modals_actions"
 
 
 class LoadComments extends React.Component {
 
     render() {
-        const { comments, postId, users, fetchComments, fetchReplies, createComment, fetchUser, currentUser } = this.props;
+        const { comments, postId, users, fetchComments, fetchReplies, createComment, fetchUser, currentUser, deleteComment, editComment, openModal } = this.props;
         if (!comments) return null;
         return (
             <Comments
                 currentUser={currentUser}
                 comments={comments}
                 postId={postId}
+                deleteComment={deleteComment}
                 users={users}
                 fetchComments={fetchComments}
                 fetchReplies={fetchReplies}
                 createComment={createComment}
-                fetchUser={fetchUser} />
+                fetchUser={fetchUser} 
+                editComment = {editComment}/>
         );
     }
 }
@@ -37,7 +41,9 @@ const mDTP = dispatch => ({
     fetchReplies: commentId => dispatch(fetchReplies(commentId)),
     createComment: comment => dispatch(createComment(comment)),
     fetchUser: userId => dispatch(fetchUser(userId)),
-    deleteComment: commentId => dispatch(deleteComment(commentId))
+    editComment: postId => dispatch(fetchEditPost(postId)),
+    deleteComment: commentId => dispatch(deleteComment(commentId)),
+    openModal: type => dispatch(openModal(type))
 })
 
-export default connect(mSTP, mDTP)(LoadComments)
+export default connect(mSTP, mDTP)(Comments)

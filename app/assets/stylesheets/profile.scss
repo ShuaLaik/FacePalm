@@ -32,6 +32,7 @@
         cursor: pointer;
     }
     .post-item{
+        position: relative;
         border-radius: 8px;
         border-left: 1px solid rgb(230, 230, 230);
         border-right: 1px solid rgb(230, 230, 230);
@@ -44,6 +45,7 @@
             display: flex;
             flex-direction: column;
             justify-content: column;
+            margin-top: 0px;
         }
         .post-left{
             margin-left: 0px;
@@ -58,18 +60,6 @@
         }
         .time{
             font-size: 10px;
-        }
-        #comment-buttons-div{
-            display: flex;
-            flex-direction: row;
-        }
-        .comment-buttons{
-            color:rgba(93, 93, 255, 0.959);
-            text-decoration: underline;
-        }
-        .comment-buttons:hover{
-            color:rgba(80, 80, 248, 0.959);
-            cursor: pointer;
         }
         .comment-section{
             border-top: 1px solid rgb(221, 220, 220);
@@ -99,7 +89,8 @@
             }
             button:hover{
                 background-color: rgb(158, 156, 156);
-            }
+            }            
+
         }
         .comment{
             display: flex;
@@ -124,8 +115,9 @@
             }
             a{
             color: black;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 300;
+            padding: 3px 15px 3px 5px;
             text-decoration: none;
             }
             a:hover{
@@ -358,4 +350,24 @@
     }
 
 }
+.show-button{
+    position: relative;
+    left: 500px;
+    bottom: 27px;
 
+}
+#comment-buttons-div{
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+.comment-buttons{
+    color:rgba(93, 93, 255, 0.959);
+    text-decoration: none;
+    margin-top: 0px;
+}
+.comment-buttons:hover{
+    color:rgba(80, 80, 248, 0.959);
+    cursor: pointer;
+    text-decoration: underline;
+}

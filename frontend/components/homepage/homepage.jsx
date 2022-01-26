@@ -18,10 +18,10 @@ class Homepage extends React.Component{
                 </form>
             </ul>
             <ul className="inner-banner x2">
-                <a href="https://github.com/ShuaLaik">
+                <a href="https://github.com/ShuaLaik" target="_blank">
                     <img className="logos"src={window.githublogoURL}/>
                 </a>
-                <a href="https://www.linkedin.com/in/joshualaikowski/">
+                <a href="https://www.linkedin.com/in/joshualaikowski/" target="_blank">
                     <img className="logos" src={window.linkedinlogoURL}/>
                 </a>
             </ul>
