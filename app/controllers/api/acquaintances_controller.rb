@@ -1,7 +1,7 @@
 class Api::AcquaintancesController < ApplicationController
 
     def index
-       @user = User.find_by(id: params[:user_id]) 
+       @user = User.find_by(id: params[:acquaint][:user_id]) 
        @acquaintances = @user.acquaintances
        if @user
             render :index 
