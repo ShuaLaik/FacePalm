@@ -9,6 +9,20 @@ class User < ApplicationRecord
     has_one_attached :avatar
     has_one_attached :cover
     
+    has_many :aqs,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Acquaintance
+
+    has_many :notifications,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Notification
+
+    has_many :acquaintances,
+    through: :aqs,
+    source: :aq
+
     has_many :posts,
     primary_key: :id,
     foreign_key: :user_id,
