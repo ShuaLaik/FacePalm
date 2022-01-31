@@ -29,7 +29,13 @@ class Api::AcquaintancesController < ApplicationController
         if !@a1.delete || !@a2.delete
             render json: ["User relation does not exist"], status: 422
         else
-            render json: ["Success!"]
+            @user = User.find_by(id: params[:acquaint][:user_id]) 
+            @acquaintances = @user.acquaintances
+            if @user
+                    render :index 
+            else
+                    render json: ["Error, User Not Found"]
+            end
         end
     end  
 
