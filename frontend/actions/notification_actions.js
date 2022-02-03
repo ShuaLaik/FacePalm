@@ -22,17 +22,16 @@ const removeNotification = notifId => ({
 export const fetchNotifications = () => dispatch => {
     return NotificationUtil.fetchNotifications()
         .then(notifications => dispatch(receiveNotification(notifications)))
-        .then(notifications => dispatch(receivePendingNotification(notifications)))
 }
 
 export const fetchPendingNotifcations = () => dispatch => {
     return NotificationUtil.fetchPendingNotifcations()
-        .then(notifications => dispatch(receivePendingNotification(notifications)))
+        .then(notifications => dispatch(receivePendingNotifications(notifications)))
 }
 
 export const createNotification = notification => dispatch => {
     return NotificationUtil.createNotification(notification)
-        .then(notifications => dispatch(receivePendingNotification(notifications)))
+        .then(notifications => dispatch(receivePendingNotifications(notifications)))
 }
 
 export const deleteNotification = notifId => dispatch => {

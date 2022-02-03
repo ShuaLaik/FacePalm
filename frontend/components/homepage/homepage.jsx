@@ -1,12 +1,20 @@
 import React from "react"
 import { Link } from "react-router-dom";
+import NotificationsContainer from "./notifications_container";
 
 class Homepage extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            active: false
+        }
         this.HandleLogOut = HandleLogOut.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
+    handleClick(){
+        this.state.active === true ? this.setState({active: false}) : this.setState({active: true})
+    }
     render(){
         const user = this.props.users[this.props.currentUser]
         return <div id="nav-banner">
@@ -18,20 +26,23 @@ class Homepage extends React.Component{
                 </form>
             </ul>
             <ul className="inner-banner x2">
-                <a href="https://github.com/ShuaLaik" target="_blank">
+                <a className="a" href="https://github.com/ShuaLaik" target="_blank">
                     <img className="logos"src={window.githublogoURL}/>
                 </a>
-                <a href="https://www.linkedin.com/in/joshualaikowski/" target="_blank">
+                <a className="a" href="https://www.linkedin.com/in/joshualaikowski/" target="_blank">
                     <img className="logos" src={window.linkedinlogoURL}/>
                 </a>
             </ul>
             <ul className="inner-banner">
-
-                <Link to={`/profile/${user.id}`} >
+                <Link className="a" to={`/profile/${user.id}`} >
                     <img id="banner-img" src={user.avatarUrl} />
                     <h1 className="banner-text">{user.first_name}</h1>
                     </Link>
-                <img id="notiflogo" src={window.notiflogoURL}/>
+                <img id="notiflogo" 
+                onClick={() => this.handleClick()} 
+                className={this.state.active === true ? "active" : ""}
+                src={window.notiflogoURL}/>
+                {this.state.active === true ? <ul onClick={() => this.handleClick()} className="notif-dropdown"><NotificationsContainer /></ul> : null}
                 {this.HandleLogOut(this.props.session, this.props.logOutUser)}
             </ul>
         </div>

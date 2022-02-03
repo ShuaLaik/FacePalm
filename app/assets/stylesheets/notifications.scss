@@ -1,0 +1,30 @@
+.notification{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    img{
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+    }
+    h1{
+        color: rgb(56, 56, 56);
+        font-size: 20px;
+        text-decoration: none;
+    }
+}
+.notification:hover{
+    background-color: rgb(233, 233, 233);
+}
+#notification-tab{
+    transition-delay: .5s;
+    padding: 10px;
+    h2{
+        font-size: 25px;
+        font-weight: 500;
+        padding: 10px
+    }
+}

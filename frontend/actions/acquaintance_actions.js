@@ -18,10 +18,10 @@ export const fetchAcquaintances = acquaint => dispatch => {
         .then(aquaintances = dispatch(receiveAcquaintances(aquaintances)))
 }
 export const addAcquaintance = acquaint => dispatch => {
-    return AcquaintanceUtil.addAcquaintances(acquaint)
+    return AcquaintanceUtil.addAcquaintance(acquaint)
         .then(aquaintances = dispatch(receiveAcquaintances(aquaintances)))
 }
-export const removeAcquaintance = acquaint => dispatch => {
+export const deleteAcquaintance = acquaint => dispatch => {
     return AcquaintanceUtil.deleteAcquaintance(acquaint)
         .then(acquaintances = dispatch(receiveAcquaintance(acquaint)))
 }

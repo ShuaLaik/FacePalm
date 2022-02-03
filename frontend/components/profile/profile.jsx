@@ -14,13 +14,22 @@ class Profile extends React.Component {
             more: "",
             to: "",
             come: "",
-            pageUser: this.props.pageUser
+            pageUser: this.props.pageUser,
+            button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Acquaintance</button>
         }
         this.handleSelect = this.handleSelect.bind(this)
+        this.buttonCheck = this.buttonCheck.bind(this)
     }
-    // componentDidUpdate(){
-    //     window.scrollTo(0,0);
-    // }
+    componentWillMount(){
+        // this.props.fetchNotifications()
+        // this.props.fetchPendingNotificaitons()
+        this.buttonCheck()
+    }
+    componentDidUpdate(prevProps){
+        if (prevProps.pageUser.id !== this.props.pageUser.id){
+            this.buttonCheck()
+        }
+    }
 
     handleSelect(type){
         Object.keys(this.state).map(key => {
@@ -34,25 +43,52 @@ class Profile extends React.Component {
     handleProfileModal(){
         return this.props.modal("EditProfilePic")
     }
+    handleRequestSent(){
+        
+    }
+    handleRequestRevoked(){
+
+    }
+    buttonCheck(){
+        const { currentUser, pageUser} = this.props;
+        if (currentUser === pageUser.id) {
+            this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Edit Profile</button>})
+        } else {
+            const pn = Object.values(this.props.pendingNotifications)
+            const n = Object.values(this.props.notifications)
+            debugger
+            pn.map(pnotif => {
+                if (pnotif.notifier_id === currentUser && pnotif.user_id === pageUser.id){
+                    this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Request Sent!</button>})
+                }
+            })
+            n.map(notif => {
+                debugger
+                if (notif.user_id === currentUser && notif.notifier_id === pageUser.id){
+                    this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Accept Request</button>})
+                    debugger
+                }
+            })
+        }
+    }
 
     render(){
         const { currentUser, pageUser} = this.props;
-        let button = "Acquaintance"
         let camera = <div></div>
         if (currentUser === pageUser.id) {
-            button = "Edit Profile"
             camera = <div id="camera">
                     <img onClick={() => this.props.modal("EditProiflePic")}  src={window.cameralogoURL} />
                 </div>
         }
+        debugger
         return <div id="profile-page">
             <div id="top-profile">
-                <img id="cover" src="https://i.ytimg.com/vi/ScPOKi2R-8Q/maxresdefault.jpg"/>
+                <img id="cover" src="https://newevolutiondesigns.com/images/freebies/retro-facebook-cover-6.jpg"/>
                 <div id="main-ul">
                     <ol>
                         <img id="profile" src={pageUser.avatarUrl}/>
                         {camera}
-                        <button onClick={() => this.props.modal("EditUser")} id="editbutton">{button}</button>
+                        {this.state.button}
                     </ol>
                     <p>{pageUser.first_name} {pageUser.last_name}</p>
                     <ul>
