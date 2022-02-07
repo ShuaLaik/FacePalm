@@ -25,7 +25,7 @@ class Api::AcquaintancesController < ApplicationController
 
     def destroy
         @a1 = Acquaintance.select("*").where("user_id=#{params[:acquaint][:user_id]} AND aq_id=#{params[:acquaint][:aq_id]}")[0]
-        @a2 = Acquaintance.find_by(id: (@a1.id + 1))
+        @a2 = Acquaintance.select("*").where("user_id=#{params[:acquaint][:aq_id]} AND aq_id=#{params[:acquaint][:user_id]}")[0]
         if !@a1.delete || !@a2.delete
             render json: ["User relation does not exist"], status: 422
         else

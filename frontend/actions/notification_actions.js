@@ -36,5 +36,5 @@ export const createNotification = notification => dispatch => {
 
 export const deleteNotification = notifId => dispatch => {
     return NotificationUtil.deleteNotification(notifId)
-        .then(() => dispatch(deleteNotification(notifId)))
+        .then(() => dispatch(removeNotification(notifId)))
 }

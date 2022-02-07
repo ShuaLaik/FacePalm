@@ -4,8 +4,10 @@ import Profile from "./profile"
 import React from 'react'
 import { fetchPosts } from "../../actions/post_actions"
 import { openModal } from "../../actions/modals_actions"
-import { fetchNotifications, fetchPendingNotifcations } from "../../actions/notification_actions"
+import { createNotification, fetchNotifications, fetchPendingNotifcations } from "../../actions/notification_actions"
 import notifications_container from "../homepage/notifications_container"
+import { deleteNotification} from "../../actions/notification_actions"
+import { addAcquaintance, deleteAcquaintance, fetchAcquaintances } from "../../actions/acquaintance_actions"
 
 class LoadProfile extends React.Component {
 
@@ -28,7 +30,23 @@ class LoadProfile extends React.Component {
         
     }
     render() {
-        const { action, pageUser, currentUser, fetchUser, posts, modal, fetchNotifications, fetchPendingNotifcations, pendingNotifications, notifications } = this.props;
+        const { action, 
+            pageUser, 
+            currentUser, 
+            fetchUser, 
+            posts, 
+            modal, 
+            fetchNotifications, 
+            fetchPendingNotifcations, 
+            pendingNotifications, 
+            notifications, 
+            createNotification, 
+            deleteNotification, 
+            addAcquaintance, 
+            acqs, 
+            fetchAcquaintances,
+            deleteAcquaintance
+            } = this.props;
         if (!pageUser) return null;
         return (
             <Profile
@@ -38,10 +56,16 @@ class LoadProfile extends React.Component {
                 currentUser={currentUser}
                 fetchUser={fetchUser}
                 posts={posts}
+                createNotification={createNotification}
                 pendingNotifications={pendingNotifications}
                 notifications={notifications}
                 fetchPendingNotifcations={fetchPendingNotifcations}
                 fetchNotifications={fetchNotifications}
+                deleteNotification={deleteNotification}
+                addAcquaintance={addAcquaintance}
+                fetchAcquaintances={fetchAcquaintances}
+                acqs={acqs}
+                deleteAcquaintance={deleteAcquaintance}
                 pageid={this.props.match.params.id} />
 
         );
@@ -54,14 +78,20 @@ const mSTP = (state, ownProps) => ({
     currentUser: state.sessions.id,
     users: state.entities.users,
     pendingNotifications: state.entities.pendingNotifications,
-    notifications: state.entities.notifications
+    notifications: state.entities.notifications,
+    acqs: state.entities.acquaintances
 })
 const mDTP = dispatch => ({
     fetchUser: userId => dispatch(fetchUser(userId)),
     fetchPosts: userId => dispatch(fetchPosts(userId)),
     modal: form => dispatch(openModal(form)),
     fetchNotifications: () => dispatch(fetchNotifications()),
-    fetchPendingNotifcations: () => dispatch(fetchPendingNotifcations())
+    fetchPendingNotifcations: () => dispatch(fetchPendingNotifcations()),
+    createNotification: notif => dispatch(createNotification(notif)),
+    deleteNotification: notifId => dispatch(deleteNotification(notifId)),
+    addAcquaintance: acquaint => dispatch(addAcquaintance(acquaint)),
+    fetchAcquaintances: userId => dispatch(fetchAcquaintances({user_id: userId})),
+    deleteAcquaintance: acquaint => dispatch(deleteAcquaintance(acquaint))
 })
 
 export default connect(mSTP, mDTP)(LoadProfile)

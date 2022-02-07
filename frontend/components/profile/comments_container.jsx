@@ -9,6 +9,7 @@ import { openModal } from "../../actions/modals_actions"
 
 class LoadComments extends React.Component {
 
+    
     render() {
         const { comments, postId, users, fetchComments, fetchReplies, createComment, fetchUser, currentUser, deleteComment, editComment, openModal } = this.props;
         if (!comments) return null;

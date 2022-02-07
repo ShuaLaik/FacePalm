@@ -5,7 +5,7 @@ const AcquaintanceReducer = (prevState = [], action) => {
     let newState = Object.assign({}, prevState)
     switch (action.type) {
         case RECEIVE_ACQUAINTANCES:
-            return action.aquaintances
+            return Object.values(action.acquaintances)[0]
         default:
             return prevState;
     }

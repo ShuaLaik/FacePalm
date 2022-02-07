@@ -15,18 +15,28 @@ class Profile extends React.Component {
             to: "",
             come: "",
             pageUser: this.props.pageUser,
-            button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Acquaintance</button>
+            button: <button onClick={() => this.handleSendRequest()} id="editbutton">Acquaintance</button>
         }
         this.handleSelect = this.handleSelect.bind(this)
         this.buttonCheck = this.buttonCheck.bind(this)
+        this.handleSendRequest = this.handleSendRequest.bind(this)
+        this.handleRevokeRequest = this.handleRevokeRequest.bind(this)
+        this.handleAcceptRequest = this.handleAcceptRequest.bind(this)
+        this.handleDeleteAcquaintance = this.handleDeleteAcquaintance.bind(this)
     }
     componentWillMount(){
-        // this.props.fetchNotifications()
-        // this.props.fetchPendingNotificaitons()
-        this.buttonCheck()
+        this.props.fetchNotifications()
+        this.props.fetchPendingNotifcations()
+        this.props.fetchAcquaintances(this.props.currentUser)
+        setTimeout(() => this.buttonCheck(), 100);
+        // this.buttonCheck()
+        
     }
-    componentDidUpdate(prevProps){
+    componentWillUpdate(prevProps){
         if (prevProps.pageUser.id !== this.props.pageUser.id){
+            this.buttonCheck()
+        }
+        if (prevProps.pendingNotifications !== this.props.pendingNotifications) {
             this.buttonCheck()
         }
     }
@@ -43,30 +53,50 @@ class Profile extends React.Component {
     handleProfileModal(){
         return this.props.modal("EditProfilePic")
     }
-    handleRequestSent(){
-        
+    handleSendRequest(){
+        const { currentUser, pageUser} = this.props;
+        const notif = {
+            user_id: pageUser.id,
+            notifier_id: currentUser,
+            notif_type: "sent an Acquaintance Request!"
+        }
+        this.props.createNotification(notif)
+        this.buttonCheck()
     }
-    handleRequestRevoked(){
-
+    handleRevokeRequest(notif){
+        this.props.deleteNotification(notif.id)
+        this.buttonCheck()
+    }
+    handleAcceptRequest(notif){
+        this.props.deleteNotification(notif.id)
+        const { currentUser, pageUser} = this.props;
+        const acquaint = {
+            user_id: currentUser,
+            aq_id: pageUser.id
+        }
+        this.props.addAcquaintance(acquaint)
+    }
+    handleDeleteAcquaintance(){
+        this.props.deleteAcquaintance({user_id: this.props.currentUser, aq_id: this.props.pageUser.id})
     }
     buttonCheck(){
         const { currentUser, pageUser} = this.props;
+        debugger
         if (currentUser === pageUser.id) {
             this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Edit Profile</button>})
+        } else if (this.props.acqs.includes(pageUser.id)) {
+            this.setState({ button: <button onClick={() => this.handleDeleteAcquaintance()} id="editbutton">Remove Acquaintance</button>})
         } else {
             const pn = Object.values(this.props.pendingNotifications)
             const n = Object.values(this.props.notifications)
-            debugger
             pn.map(pnotif => {
                 if (pnotif.notifier_id === currentUser && pnotif.user_id === pageUser.id){
-                    this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Request Sent!</button>})
+                    this.setState({ button: <button onClick={() => this.handleRevokeRequest(pnotif)} id="editbutton">Revoke Request</button>})
                 }
             })
             n.map(notif => {
-                debugger
                 if (notif.user_id === currentUser && notif.notifier_id === pageUser.id){
-                    this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Accept Request</button>})
-                    debugger
+                    this.setState({ button: <button onClick={() => this.handleAcceptRequest(notif)} id="editbutton">Accept Request</button>})
                 }
             })
         }
@@ -80,7 +110,6 @@ class Profile extends React.Component {
                     <img onClick={() => this.props.modal("EditProiflePic")}  src={window.cameralogoURL} />
                 </div>
         }
-        debugger
         return <div id="profile-page">
             <div id="top-profile">
                 <img id="cover" src="https://newevolutiondesigns.com/images/freebies/retro-facebook-cover-6.jpg"/>
