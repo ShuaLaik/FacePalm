@@ -1,0 +1,60 @@
+#acquaintances-container{
+    width: 953px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    border-left: 1px solid rgb(230, 230, 230);
+    border-right: 1px solid rgb(230, 230, 230);
+    border-top: 0.5px solid rgb(230, 230, 230);
+    border-bottom: 3px solid rgb(230, 230, 230);
+    
+    div{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    h1{
+        font-size: 35px;
+        color: black;
+        font-weight: 300;
+        padding: 10px;
+    }
+}
+.acquaintance-item{
+    width: 455px;
+    min-width: 455px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid rgb(240, 240, 240);
+    div{
+        h2{
+            font-weight: 500;
+            font-size: 18px;
+            padding: 15px;
+            text-overflow: ellipsis;
+        }
+        a{
+            text-decoration: none;
+        }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    img{
+        height: 70px;
+        width: 70px;
+        margin: 10px;
+        border-radius: 8px;
+    }
+    button{
+        width: 80px;
+        height: 40px;
+        font-size: 15px;
+        margin: 20px;
+    }
+}

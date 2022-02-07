@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PostIndexContainer from "./post_index_container";
 import SidebarContainer from "./sidebar_container";
 import ModalsContainer from "../modals/modals_container";
+import AcquaintancesContainer from "./acquaintances/acquaintances_container";
 
 class Profile extends React.Component {
     constructor(props){
@@ -106,7 +107,7 @@ class Profile extends React.Component {
         const { currentUser, pageUser} = this.props;
         let bottomPage = <div id="bottom-profile"><SidebarContainer pageUser={pageUser}/><PostIndexContainer pageUser={pageUser}/></div>
         if (this.state.friends === "selected") {
-            bottomPage = null;
+            bottomPage = <div id="bottom-profile"><AcquaintancesContainer /></div>;
         } else if (this.state.posts !== "selected"){
             bottomPage = null
         }

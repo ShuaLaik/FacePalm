@@ -1,4 +1,5 @@
 import * as AcquaintanceUtil from "../util/acquaintance_util"
+import { fetchUser } from "./user_actions"
 
 export const RECEIVE_ACQUAINTANCES = "RECEIVE_ACQUAINTANCES"
 export const REMOVE_ACQUAINTANCE = "REMOVE_ACQUAINTANCE"
@@ -6,10 +7,6 @@ export const REMOVE_ACQUAINTANCE = "REMOVE_ACQUAINTANCE"
 const receiveAcquaintances = acquaintances => ({
     type: RECEIVE_ACQUAINTANCES,
     acquaintances
-})
-
-const removeAcquaintance = () => ({
-    type: REMOVE_ACQUAINTANCE
 })
 
 export const fetchAcquaintances = acquaint => dispatch => {
