@@ -29,11 +29,11 @@ class Profile extends React.Component {
         this.props.fetchPendingNotifcations()
         this.props.fetchAcquaintances(this.props.currentUser)
         setTimeout(() => this.buttonCheck(), 100);
-        // this.buttonCheck()
+        this.buttonCheck()
         
     }
-    componentWillUpdate(prevProps){
-        if (prevProps.pageUser.id !== this.props.pageUser.id){
+    componentDidUpdate(prevProps){
+        if (prevProps !== this.props){
             this.buttonCheck()
         }
         if (prevProps.pendingNotifications !== this.props.pendingNotifications) {
@@ -45,9 +45,9 @@ class Profile extends React.Component {
         Object.keys(this.state).map(key => {
             if (type === key) {
                 this.setState({[key]: "selected"})
-            } else {
+            } else if (key !== "button"){
                 this.setState({[key]: ""})
-            }
+            } 
         })
     }
     handleProfileModal(){
@@ -104,6 +104,12 @@ class Profile extends React.Component {
 
     render(){
         const { currentUser, pageUser} = this.props;
+        let bottomPage = <div id="bottom-profile"><SidebarContainer pageUser={pageUser}/><PostIndexContainer pageUser={pageUser}/></div>
+        if (this.state.friends === "selected") {
+            bottomPage = null;
+        } else if (this.state.posts !== "selected"){
+            bottomPage = null
+        }
         let camera = <div></div>
         if (currentUser === pageUser.id) {
             camera = <div id="camera">
@@ -152,10 +158,7 @@ class Profile extends React.Component {
                         >Come</li>
                     </ul>
                     </div>
-            <div id="bottom-profile">
-                <SidebarContainer pageUser={pageUser}/>
-                <PostIndexContainer pageUser={pageUser}/>
-            </div>
+                {bottomPage}
             </div>
         </div>
     }
