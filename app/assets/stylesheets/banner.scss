@@ -1,20 +1,25 @@
 #logo {
- height: 42px;
- width: 47px;
+ height: 38px;
+ width: 43px;
  padding-left: 15px;
 }
+#logo:hover{
+    background-color: rgba(218, 218, 218, 0.959);
+    border-radius: 50%;
+}
 #banner-img{
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     border-radius: 50%;
     object-fit: fill;
     position: relative;
     left: 5px;
     padding: 0px;
+    margin: 0px;
 }
 #notiflogo{
-    height:37px;
-    width: 42px;
+    height:33px;
+    width: 39px;
     border-radius: 50%;
 
 }
@@ -48,8 +53,11 @@
     display: flex;
 }
 .logos{
-    height: 42px;
-    width: 42px;
+    height: 35px;
+    width: 35px;
+    position: relative;
+    top: -1px;
+    padding: 0px;
     
 }
 .x2{
@@ -58,18 +66,24 @@
 }
 
 #nav-banner{
+    height: 50px;
     z-index: 100;
     position: fixed;
     width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-content: center;
     background-color: white;
     box-shadow: 1px 1px 1px #b4b4b4, 1px 1px 1em #8f8f8f;
+    form{
+        padding:0px;
+        height: 45px;
+    }
     button{
-        font-size: 15px;
-        height: 37px;
-        width: 80px;
+        font-size: 13px;
+        height: 32px;
+        width: 65px;
         background-color: black;
         padding-right: 20px;
         margin-left: 1%;
@@ -81,18 +95,15 @@
         border: 1px solid rgb(68, 68, 68);
     }
     input{
-        height: 30px;
+        height: 25px;
         width: 300px;
         font-size: 10px;
         color: black;
-        margin-top: 4px;
+        margin-top: 7px;
         border-radius: 16px;
     }
-    Link{
-        font-size: 20px;
-    }
     .banner-text{
-        font-size: 20px;
+        font-size: 15px;
         text-decoration: none;
         font-family: 'Roboto', sans-serif;
         font-weight: 100;
@@ -117,8 +128,8 @@
         padding-right: 6px;
     }
     img{
-        padding-top: 10px;
-        padding-bottom:10px;
+        padding-top: 5px;
+        padding-bottom:5px;
         
     }
 }
