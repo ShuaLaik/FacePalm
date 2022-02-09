@@ -15,7 +15,9 @@ class Api::NotificationsController < ApplicationController
     def create
         @notif = Notification.new(notif_params)
         if @notif.save
-            render json: "Success"
+            @user = current_user
+            @notifs = Notification.select("*").where("notifier_id=#{current_user.id}")
+            render :index
         else
             render json: @notif.errors.full_messages, status: 422
         end

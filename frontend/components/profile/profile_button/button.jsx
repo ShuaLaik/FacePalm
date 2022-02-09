@@ -76,7 +76,6 @@ export default class Button extends Component {
             const n = Object.values(this.props.notifications)
             pn.map(pnotif => {
                 if (pnotif.notifier_id === currentUser && pnotif.user_id === pageUser.id){
-                    debugger
                     change = true
                     this.setState({
                         type: "Revoke Request",
@@ -110,7 +109,6 @@ export default class Button extends Component {
         this.buttonCheck()
     }
     render() {
-        console.log("render")
         return <button onClick={() => this.handleClick()} id="editbutton">{this.state.type}</button>;
     }
 }
