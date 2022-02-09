@@ -19,6 +19,7 @@ class Homepage extends React.Component{
     }
     render(){
         const user = this.props.users[this.props.currentUser]
+        if (!user) return null;
         return <div id="nav-banner">
             <ul className="inner-banner">
             <Link to="/">
@@ -39,7 +40,7 @@ class Homepage extends React.Component{
                 <Link className="a" to={`/profile/${user.id}`} >
                     <img id="banner-img" src={user.avatarUrl} />
                     <h1 className="banner-text">{user.first_name}</h1>
-                    </Link>
+                </Link>
                 <img id="notiflogo" 
                 onClick={() => this.handleClick()} 
                 className={this.state.active === true ? "active" : ""}

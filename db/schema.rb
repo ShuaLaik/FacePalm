@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_31_184656) do
+ActiveRecord::Schema.define(version: 2022_02_09_204549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_01_31_184656) do
   create_table "acquaintances", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "aq_id", null: false
+    t.index ["aq_id"], name: "index_acquaintances_on_aq_id"
     t.index ["user_id"], name: "index_acquaintances_on_user_id"
   end
 
@@ -73,6 +74,8 @@ ActiveRecord::Schema.define(version: 2022_01_31_184656) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "notif_type"
+    t.index ["notifier_id"], name: "index_notifications_on_notifier_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
