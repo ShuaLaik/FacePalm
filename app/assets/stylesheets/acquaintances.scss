@@ -15,14 +15,13 @@
     }
     h1{
         font-size: 35px;
-        color: black;
-        font-weight: 300;
-        padding: 10px;
+        color: rgb(49, 49, 49);
+        font-weight: 700;
+        padding: 10px 10px 20px 10px;
     }
 }
 .acquaintance-item{
-    width: 455px;
-    min-width: 455px;
+    width: 451px;
     height: 90px;
     display: flex;
     flex-direction: row;
@@ -41,6 +40,9 @@
         a{
             text-decoration: none;
         }
+        a:hover{
+            cursor: pointer;
+        }
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -56,5 +58,8 @@
         height: 40px;
         font-size: 15px;
         margin: 20px;
+    }
+    button:hover{
+        cursor: pointer;
     }
 }

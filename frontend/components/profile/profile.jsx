@@ -31,7 +31,6 @@ class Profile extends React.Component {
         this.props.fetchAcquaintances(this.props.currentUser)
         setTimeout(() => this.buttonCheck(), 100);
         this.buttonCheck()
-        
     }
     componentDidUpdate(prevProps){
         if (prevProps !== this.props){
@@ -107,7 +106,7 @@ class Profile extends React.Component {
         const { currentUser, pageUser} = this.props;
         let bottomPage = <div id="bottom-profile"><SidebarContainer pageUser={pageUser}/><PostIndexContainer pageUser={pageUser}/></div>
         if (this.state.friends === "selected") {
-            bottomPage = <div id="bottom-profile"><AcquaintancesContainer /></div>;
+            bottomPage = <div id="bottom-profile"><AcquaintancesContainer pageUser={pageUser}/></div>;
         } else if (this.state.posts !== "selected"){
             bottomPage = null
         }

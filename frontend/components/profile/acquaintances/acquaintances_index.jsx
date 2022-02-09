@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import AcquaintancesItem from './acquaintances_item';
 
 export default class AcquaintancesIndex extends Component {
-    componentDidMount(){
-        this.props.fetchAcquaintances()
+    componentWillMount(){
+        this.props.fetchAcquaintances({user_id: this.props.pageUser.id})
     }
 
   render() {
@@ -15,6 +15,7 @@ export default class AcquaintancesIndex extends Component {
             {acquaintances.map(aq => {
                 return <AcquaintancesItem 
                 aq={aq}
+                key={aq}
                 fetchUser={fetchUser}
                 users={users}
                 currentUser={currentUser}
