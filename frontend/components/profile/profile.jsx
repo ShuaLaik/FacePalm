@@ -20,11 +20,6 @@ class Profile extends React.Component {
             button: <button onClick={() => this.handleSendRequest()} id="editbutton">Acquaintance</button>
         }
         this.handleSelect = this.handleSelect.bind(this)
-        this.buttonCheck = this.buttonCheck.bind(this)
-        this.handleSendRequest = this.handleSendRequest.bind(this)
-        this.handleRevokeRequest = this.handleRevokeRequest.bind(this)
-        this.handleAcceptRequest = this.handleAcceptRequest.bind(this)
-        this.handleDeleteAcquaintance = this.handleDeleteAcquaintance.bind(this)
         this.props.fetchNotifications()
         this.props.fetchPendingNotifcations()
         this.props.fetchAcquaintances(this.props.currentUser)
@@ -69,39 +64,7 @@ class Profile extends React.Component {
         this.props.deleteNotification(notif.id)
         this.buttonCheck()
     }
-    handleAcceptRequest(notif){
-        this.props.deleteNotification(notif.id)
-        const { currentUser, pageUser} = this.props;
-        const acquaint = {
-            user_id: currentUser,
-            aq_id: pageUser.id
-        }
-        this.props.addAcquaintance(acquaint)
-    }
-    handleDeleteAcquaintance(){
-        this.props.deleteAcquaintance({user_id: this.props.currentUser, aq_id: this.props.pageUser.id})
-    }
-    buttonCheck(){
-        const { currentUser, pageUser} = this.props;
-        if (currentUser === pageUser.id) {
-            this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Edit Profile</button>})
-        } else if (this.props.acqs.includes(pageUser.id)) {
-            this.setState({ button: <button onClick={() => this.handleDeleteAcquaintance()} id="editbutton">Remove Acquaintance</button>})
-        } else {
-            const pn = Object.values(this.props.pendingNotifications)
-            const n = Object.values(this.props.notifications)
-            pn.map(pnotif => {
-                if (pnotif.notifier_id === currentUser && pnotif.user_id === pageUser.id){
-                    this.setState({ button: <button onClick={() => this.handleRevokeRequest(pnotif)} id="editbutton">Revoke Request</button>})
-                }
-            })
-            n.map(notif => {
-                if (notif.user_id === currentUser && notif.notifier_id === pageUser.id){
-                    this.setState({ button: <button onClick={() => this.handleAcceptRequest(notif)} id="editbutton">Accept Request</button>})
-                }
-            })
-        }
-    }
+
 
     render(){
         const { currentUser, pageUser} = this.props;

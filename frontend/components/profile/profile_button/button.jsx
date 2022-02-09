@@ -14,14 +14,15 @@ export default class Button extends Component {
             action: this.handleSendRequest,
             argument: null
         }
-        this.buttonCheck()
-        
+        // this.buttonCheck()
     }
     componentDidMount(){
         this.buttonCheck()
     }
-    componentDidUpdate(){
-
+    componentDidUpdate(prevProps){
+        if (prevProps.pageUser !== this.props.pageUser){
+            this.buttonCheck()
+        }
     }
     handleSendRequest(){
         const { currentUser, pageUser} = this.props;
@@ -51,13 +52,17 @@ export default class Button extends Component {
     }
     buttonCheck(){
         const { currentUser, pageUser} = this.props;
+        let change = false;
         if (currentUser === pageUser.id) {
+            change = true
             this.setState({ 
                 type: "Edit User",
                 action: () => this.props.modal("EditUser"), 
                 argument: null
             })
+            
         } else if (this.props.acqs.includes(pageUser.id)) {
+            change = true
             this.setState({
                 type: "Remove Acquaintance", 
                 action: () => this.handleDeleteAcquaintance(), 
@@ -68,21 +73,31 @@ export default class Button extends Component {
             const n = Object.values(this.props.notifications)
             pn.map(pnotif => {
                 if (pnotif.notifier_id === currentUser && pnotif.user_id === pageUser.id){
+                    change = true
                     this.setState({
                         type: "Revoke Request",
                         action: () => this.handleRevokeRequest(),
                         argument: pnotif     
                     })
+                    
                 }
             })
             n.map(notif => {
                 if (notif.user_id === currentUser && notif.notifier_id === pageUser.id){
+                    change = true
                     this.setState({
                         type: "Accept Request",
                         action:  () => this.handleAcceptRequest(),
                         argument: notif
                     })
                 }
+            })
+        }
+        if (change === false){
+            this.setState({
+                type: "Acquaintance",
+                action: this.handleSendRequest,
+                argument: null
             })
         }
     }
