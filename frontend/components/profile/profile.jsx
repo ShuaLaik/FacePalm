@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PostIndexContainer from "./post_index_container";
+import PostIndexContainer from "./posts/post_index_container";
 import SidebarContainer from "./sidebar_container";
 import ModalsContainer from "../modals/modals_container";
 import AcquaintancesContainer from "./acquaintances/acquaintances_container";
+import ButtonContainer from "./profile_button/button_container";
 
 class Profile extends React.Component {
     constructor(props){
@@ -24,8 +25,6 @@ class Profile extends React.Component {
         this.handleRevokeRequest = this.handleRevokeRequest.bind(this)
         this.handleAcceptRequest = this.handleAcceptRequest.bind(this)
         this.handleDeleteAcquaintance = this.handleDeleteAcquaintance.bind(this)
-    }
-    componentWillMount(){
         this.props.fetchNotifications()
         this.props.fetchPendingNotifcations()
         this.props.fetchAcquaintances(this.props.currentUser)
@@ -38,6 +37,9 @@ class Profile extends React.Component {
         }
         if (prevProps.pendingNotifications !== this.props.pendingNotifications) {
             this.buttonCheck()
+        }
+        if (prevProps.pageUser !== this.props.pageUser){
+            this.handleSelect("posts")
         }
     }
 
@@ -81,7 +83,6 @@ class Profile extends React.Component {
     }
     buttonCheck(){
         const { currentUser, pageUser} = this.props;
-        debugger
         if (currentUser === pageUser.id) {
             this.setState({ button: <button onClick={() => this.props.modal("EditUser")} id="editbutton">Edit Profile</button>})
         } else if (this.props.acqs.includes(pageUser.id)) {
@@ -123,7 +124,7 @@ class Profile extends React.Component {
                     <ol>
                         <img id="profile" src={pageUser.avatarUrl}/>
                         {camera}
-                        {this.state.button}
+                        <ButtonContainer pageUser={pageUser}/>
                     </ol>
                     <p>{pageUser.first_name} {pageUser.last_name}</p>
                     <ul>

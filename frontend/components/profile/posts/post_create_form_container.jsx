@@ -1,6 +1,6 @@
 import { connect } from "react-redux"
-import { openModal } from "../../actions/modals_actions"
-import { createPost } from "../../actions/post_actions"
+import { openModal } from "../../../actions/modals_actions"
+import { createPost } from "../../../actions/post_actions"
 import PostForm from "./post_form"
 
 const mSTP = (state, ownProps) => ({

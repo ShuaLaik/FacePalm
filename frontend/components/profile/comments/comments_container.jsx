@@ -1,14 +1,18 @@
 import { connect } from "react-redux"
-import { fetchComments, createComment, fetchReplies, deleteComment } from "../../actions/comment_actions"
-import { fetchUser } from "../../actions/user_actions"
+import { fetchComments, createComment, fetchReplies, deleteComment } from "../../../actions/comment_actions"
+import { fetchUser } from "../../../actions/user_actions"
 import Comments from "./comments"
 import React from "react"
-import { fetchEditPost } from "../../actions/post_actions"
-import { openModal } from "../../actions/modals_actions"
+import { fetchEditPost } from "../../../actions/post_actions"
+import { openModal } from "../../../actions/modals_actions"
 
 
 class LoadComments extends React.Component {
-
+    constructor(props){
+        super(props)
+        this.handleDelete = this.handleDelete.bind(this)
+        this.handleEdit = this.handleEdit.bind(this)
+    }
     
     render() {
         const { comments, postId, users, fetchComments, fetchReplies, createComment, fetchUser, currentUser, deleteComment, editComment, openModal } = this.props;

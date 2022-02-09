@@ -1,10 +1,8 @@
 import PostIndex from "./post_index"
 import { connect } from "react-redux"
-import { deletePost, fetchEditPost, fetchPosts } from "../../actions/post_actions"
-import React from "react"
-import { createUser } from "../../util/user_auth_util"
-import { fetchComments } from "../../actions/comment_actions"
-import { openModal } from "../../actions/modals_actions"
+import { deletePost, fetchEditPost, fetchPosts } from "../../../actions/post_actions"
+import { fetchComments } from "../../../actions/comment_actions"
+import { openModal } from "../../../actions/modals_actions"
 
 
 const mSTP = (state, ownProps) => ({

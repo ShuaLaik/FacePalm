@@ -2,7 +2,8 @@ import { deleteAcquaintance } from "../../../actions/acquaintance_actions"
 import { connect } from "react-redux"
 import { fetchUser } from "../../../actions/user_actions"
 import AcquaintancesIndex from "./acquaintances_index"
-import { fetchAcquaintances } from "../../../actions/acquaintance_actions"
+import { fetchUserAcquaintances } from "../../../actions/acquaintance_actions"
+
 const mSTP = (state, ownProps) => ({
     users: state.entities.users,
     pageUser: ownProps.pageUser,
@@ -12,7 +13,7 @@ const mSTP = (state, ownProps) => ({
 const mDTP = dispatch => ({
     deleteAcquaintance: acquaint => dispatch(deleteAcquaintance(acquaint)),
     fetchUser: userId => dispatch(fetchUser(userId)),
-    fetchAcquaintances: () => dispatch(fetchAcquaintances())
+    fetchAcquaintances: acquaint => dispatch(fetchUserAcquaintances(acquaint))
 })
 
 export default connect(mSTP, mDTP)(AcquaintancesIndex)

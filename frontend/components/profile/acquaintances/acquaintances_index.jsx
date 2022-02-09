@@ -8,7 +8,6 @@ export default class AcquaintancesIndex extends Component {
 
   render() {
     const {acquaintances, fetchUser, deleteAcquaintance, users, currentUser} = this.props
-    debugger
     return <div id='acquaintances-container'>
         <h1>Acquaintances</h1>
         <div>

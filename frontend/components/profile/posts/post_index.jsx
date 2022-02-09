@@ -1,7 +1,7 @@
 import React from "react";
 import PostIndexItem from "./post_index_item"
 import PostCreateFormContainer from "./post_create_form_container"
-import Inbetween from "./inbetween"; 
+import Inbetween from "../inbetween"; 
 
 
 class PostIndex extends React.Component{

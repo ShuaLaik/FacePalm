@@ -79,7 +79,7 @@ const mSTP = (state, ownProps) => ({
     users: state.entities.users,
     pendingNotifications: state.entities.pendingNotifications,
     notifications: state.entities.notifications,
-    acqs: state.entities.acquaintances
+    acqs: state.sessions.acquaintances
 })
 const mDTP = dispatch => ({
     fetchUser: userId => dispatch(fetchUser(userId)),

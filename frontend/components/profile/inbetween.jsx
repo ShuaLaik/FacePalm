@@ -1,4 +1,4 @@
-import PostCreatFormContainer from "./post_create_form_container";
+import PostCreatFormContainer from "./posts/post_create_form_container";
 import React from "react";
 
 class Inbetween extends React.Component{

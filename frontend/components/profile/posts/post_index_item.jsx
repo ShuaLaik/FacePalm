@@ -1,5 +1,5 @@
 import React from "react";
-import CommentsContainer from "./comments_container"
+import CommentsContainer from "../comments/comments_container"
 
 class PostIndexItem extends React.Component{
     constructor(props){
