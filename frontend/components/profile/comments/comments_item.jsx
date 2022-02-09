@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export default class CommentsItem extends Component {
     componentDidMount(){
-        debugger
         this.props.fetchUser(this.props.comment.user_id)
     }
     handleEdit(commentId){

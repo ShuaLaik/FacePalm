@@ -23,16 +23,8 @@ class Profile extends React.Component {
         this.props.fetchNotifications()
         this.props.fetchPendingNotifcations()
         this.props.fetchAcquaintances(this.props.currentUser)
-        setTimeout(() => this.buttonCheck(), 100);
-        this.buttonCheck()
     }
     componentDidUpdate(prevProps){
-        if (prevProps !== this.props){
-            this.buttonCheck()
-        }
-        if (prevProps.pendingNotifications !== this.props.pendingNotifications) {
-            this.buttonCheck()
-        }
         if (prevProps.pageUser !== this.props.pageUser){
             this.handleSelect("posts")
         }
@@ -50,22 +42,6 @@ class Profile extends React.Component {
     handleProfileModal(){
         return this.props.modal("EditProfilePic")
     }
-    handleSendRequest(){
-        const { currentUser, pageUser} = this.props;
-        const notif = {
-            user_id: pageUser.id,
-            notifier_id: currentUser,
-            notif_type: "sent an Acquaintance Request!"
-        }
-        this.props.createNotification(notif)
-        this.buttonCheck()
-    }
-    handleRevokeRequest(notif){
-        this.props.deleteNotification(notif.id)
-        this.buttonCheck()
-    }
-
-
     render(){
         const { currentUser, pageUser} = this.props;
         let bottomPage = <div id="bottom-profile"><SidebarContainer pageUser={pageUser}/><PostIndexContainer pageUser={pageUser}/></div>

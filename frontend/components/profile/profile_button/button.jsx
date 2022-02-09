@@ -14,27 +14,29 @@ export default class Button extends Component {
             action: this.handleSendRequest,
             argument: null
         }
-        // this.buttonCheck()
     }
     componentDidMount(){
-        this.buttonCheck()
+        this.props.fetchPendingNotifcations()
+        .then(this.buttonCheck())
     }
     componentDidUpdate(prevProps){
-        if (prevProps.pageUser !== this.props.pageUser){
+        if (prevProps !== this.props){
             this.buttonCheck()
         }
     }
     handleSendRequest(){
         const { currentUser, pageUser} = this.props;
-        debugger
         this.props.createNotification({
             user_id: pageUser.id,
             notifier_id: currentUser,
             notif_type: "sent an Acquaintance Request!"
-        })
+        }).then(this.props.fetchPendingNotifcations())
+        .then(this.buttonCheck())
     }
     handleRevokeRequest(notif){
         this.props.deleteNotification(notif.id)
+            .then(this.props.fetchPendingNotifcations())
+            .then(this.buttonCheck())
     }
     handleAcceptRequest(notif){
         const { currentUser, pageUser} = this.props;
@@ -42,13 +44,13 @@ export default class Button extends Component {
         this.props.addAcquaintance({
             user_id: currentUser,
             aq_id: pageUser.id
-        })
+        }).then(this.buttonCheck())
     }
     handleDeleteAcquaintance(){
         this.props.deleteAcquaintance({
             user_id: this.props.currentUser, 
             aq_id: this.props.pageUser.id
-        })
+        }).then(this.buttonCheck())
     }
     buttonCheck(){
         const { currentUser, pageUser} = this.props;
@@ -57,15 +59,16 @@ export default class Button extends Component {
             change = true
             this.setState({ 
                 type: "Edit User",
-                action: () => this.props.modal("EditUser"), 
-                argument: null
+                action: this.props.modal, 
+                argument: "EditUser"
             })
             
         } else if (this.props.acqs.includes(pageUser.id)) {
+            debugger
             change = true
             this.setState({
                 type: "Remove Acquaintance", 
-                action: () => this.handleDeleteAcquaintance(), 
+                action: this.handleDeleteAcquaintance, 
                 argument: null
             })
         } else {
@@ -73,10 +76,11 @@ export default class Button extends Component {
             const n = Object.values(this.props.notifications)
             pn.map(pnotif => {
                 if (pnotif.notifier_id === currentUser && pnotif.user_id === pageUser.id){
+                    debugger
                     change = true
                     this.setState({
                         type: "Revoke Request",
-                        action: () => this.handleRevokeRequest(),
+                        action: this.handleRevokeRequest,
                         argument: pnotif     
                     })
                     
@@ -87,13 +91,13 @@ export default class Button extends Component {
                     change = true
                     this.setState({
                         type: "Accept Request",
-                        action:  () => this.handleAcceptRequest(),
+                        action:  this.handleAcceptRequest,
                         argument: notif
                     })
                 }
             })
         }
-        if (change === false){
+        if (!change){
             this.setState({
                 type: "Acquaintance",
                 action: this.handleSendRequest,
@@ -103,9 +107,10 @@ export default class Button extends Component {
     }
     handleClick(){
         this.state.action(this.state.argument)
-            .then(this.buttonCheck())
+        this.buttonCheck()
     }
     render() {
+        console.log("render")
         return <button onClick={() => this.handleClick()} id="editbutton">{this.state.type}</button>;
     }
 }

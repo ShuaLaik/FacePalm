@@ -10,6 +10,8 @@ class Homepage extends React.Component{
         }
         this.HandleLogOut = HandleLogOut.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.props.fetchPendingNotifcations()
+        this.props.fetchNotifications()
     }
 
     handleClick(){

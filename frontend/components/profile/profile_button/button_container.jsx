@@ -3,9 +3,9 @@ import { addAcquaintance, deleteAcquaintance, fetchAcquaintances } from "../../.
 import { openModal } from "../../../actions/modals_actions"
 import { createNotification, deleteNotification } from "../../../actions/notification_actions"
 import Button from "./button"
+import { fetchPendingNotifcations } from "../../../actions/notification_actions"
 
 const mSTP = (state, ownProps) => {
-    debugger
     return {
     pageUser: ownProps.pageUser,
     currentUser: state.sessions.id,
@@ -15,6 +15,7 @@ const mSTP = (state, ownProps) => {
     acqs: state.sessions.acquaintances
 }}
 const mDTP = dispatch => ({
+    fetchPendingNotifcations: () => dispatch(fetchPendingNotifcations()),
     createNotification: notif => dispatch(createNotification(notif)),
     deleteNotification: notifId => dispatch(deleteNotification(notifId)),
     addAcquaintance: acquaint => dispatch(addAcquaintance(acquaint)),
