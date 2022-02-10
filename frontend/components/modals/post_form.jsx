@@ -3,7 +3,7 @@ import React from "react";
 class PostForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.post
+        this.state = Object.assign({}, this.props.post, {errors: []})
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClose = this.handleClose.bind(this)
     }
@@ -19,13 +19,20 @@ class PostForm extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state);
-        this.props.closeModal();
+        if (this.state.body === ""){
+            this.setState({errors: ["Post should not be empty!"]})
+        } else {
+            this.props.action(this.state);
+            this.props.closeModal();
+        }
     }
 
     render() {
         const { user } = this.props
     return <div className="modal-post-form">
+            {this.state.errors.map(e => {
+                return <h1 id="error">{e}</h1>
+            })}
             <ul id="label">
                 <h1>Create Post</h1>
                 <h2 id="close-window" onClick={this.handleClose}>X</h2>
