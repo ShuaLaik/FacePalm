@@ -7,6 +7,8 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import ProfileContainer from "./profile/profile_container";
 import ModalsContainer from "./modals/modals_container";
 import Footer from "./homepage/footer";
+import Feed from "./homepage/feed/feed";
+import FeedContainer from "./homepage/feed/feed_container";
 
 const App = ( { store } ) => {
     return (<div>
@@ -17,6 +19,7 @@ const App = ( { store } ) => {
         <ProtectedRoute path="/signup" component={SignUpFormContainer}/>
         <Switch>
             <AuthRoute path="/profile/:id" component={ProfileContainer}/>
+            <AuthRoute path="/" component={FeedContainer} />
         </Switch>
         <ProtectedRoute path="/" component={Footer} />
     </div>)

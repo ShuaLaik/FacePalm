@@ -5,7 +5,7 @@ import React from 'react'
 import { fetchPosts } from "../../actions/post_actions"
 import { openModal } from "../../actions/modals_actions"
 import { createNotification, fetchNotifications, fetchPendingNotifcations } from "../../actions/notification_actions"
-import notifications_container from "../homepage/notifications_container"
+import notifications_container from "../homepage/notifications/notifications_container"
 import { deleteNotification} from "../../actions/notification_actions"
 import { addAcquaintance, deleteAcquaintance, fetchAcquaintances } from "../../actions/acquaintance_actions"
 

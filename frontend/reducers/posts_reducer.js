@@ -1,4 +1,4 @@
-import { DELETE_POST, RECEIVE_POST, RECEIVE_POSTS } from "../actions/post_actions";
+import { DELETE_POST, RECEIVE_POST, RECEIVE_POSTS, RECEIVE_FEED_POSTS } from "../actions/post_actions";
 
 
 const PostsReducer = (prevState={}, action) => {
@@ -7,6 +7,8 @@ const PostsReducer = (prevState={}, action) => {
     switch (action.type) {
         case RECEIVE_POSTS:
             return action.posts
+        case RECEIVE_FEED_POSTS:
+            return Object.assign({}, prevState, action.posts)
         case RECEIVE_POST:
             return Object.assign({}, prevState, { [action.post.id]: action.post })
         case DELETE_POST:

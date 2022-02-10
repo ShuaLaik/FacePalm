@@ -7,6 +7,7 @@ export const DELETE_POST = "DELETE_POST"
 export const RECEIVE_POST_ERRORS = "POST_ERRORS"
 export const RECEIVE_EDIT_POST = "RECEIVE_EDIT_POST"
 export const REMOVE_EDIT_POST = "REMOVE_EDIT_POST"
+export const RECEIVE_FEED_POSTS = "RECEIVE_FEED_POSTS"
 
 const receivePosts = posts => ({
     type: RECEIVE_POSTS,
@@ -15,6 +16,10 @@ const receivePosts = posts => ({
 const receivePost = post => ({
     type: RECEIVE_POST,
     post
+})
+const receiveFeedPosts = posts => ({
+    type: RECEIVE_FEED_POSTS,
+    posts
 })
 const removePost = postId => ({
     type: DELETE_POST,
@@ -30,6 +35,10 @@ const removeEditPost = ()=> ({
 export const fetchPosts = userId => dispatch => {
     return PostUtil.fetchPosts(userId)
         .then(posts => dispatch(receivePosts(posts)))
+}
+export const fetchFeedPosts = userId => dispatch => {
+    return PostUtil.fetchPosts(userId)
+        .then(posts => dispatch(receiveFeedPosts(posts)))
 }
 export const fetchPost = postId => dispatch => {
     return PostUtil.fetchPost(postId)

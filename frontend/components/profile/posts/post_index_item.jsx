@@ -33,6 +33,7 @@ class PostIndexItem extends React.Component{
 
     render(){
         const {postUser, post} = this.props
+        if (!postUser) return null
         return <div>
             <div className="post-item">
                 <ul id="post-header">

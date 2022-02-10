@@ -1,0 +1,197 @@
+
+#feed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: right;
+    position: relative;
+    top: 65px;
+    .show-button{
+    position: relative;
+    left: 610px;
+    bottom: 27px;
+
+}
+    .post-item{
+        // position: relative;
+        border-radius: 8px;
+        border-left: 1px solid rgb(230, 230, 230);
+        border-right: 1px solid rgb(230, 230, 230);
+        border-top: 0.5px solid rgb(230, 230, 230);
+        border-bottom: 3px solid rgb(230, 230, 230);
+        background-color: white;
+        padding: 5px;
+        width: 700px;
+        margin-bottom: 10px;
+
+        .full-comment{
+            display: flex;
+            flex-direction: column;
+            justify-content: column;
+            margin-top: 0px;
+        }
+        .post-left{
+            margin-left: 0px;
+        }
+        .post-right{
+            display: flex;
+            justify-content: right;
+        }
+        #post-header{
+            display: flex;
+            justify-content: space-between;
+        }
+        .time{
+            font-size: 10px;
+        }
+        .comment-section{
+            border-top: 1px solid rgb(221, 220, 220);
+        }
+        .inbetween{
+            display: flex;
+            flex-direction: column;
+        }
+        #comment-form{
+            // border-top: 1px solid rgb(221, 220, 220);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            input[type=text]{
+                height: 20px;
+                width: 680px;
+                font-size: 20px;
+            }
+            
+            button{
+                position: relative;
+                bottom: 20px;
+                // left: 300px;
+                height: 24px;
+                width: 100px;
+                background-color: rgb(146, 145, 145);
+                font-size: 15px;
+            }
+            button:hover{
+                background-color: rgb(158, 156, 156);
+            }            
+
+        }
+        .comment{
+            display: flex;
+            justify-content: row;
+            .names{
+                background: #f0f2f5;
+                border-radius: 25px;
+            }
+            img{
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                position: relative;
+                top: 10px;
+            }
+            p{
+                font-size: 16px;
+                padding-right: 15px;
+                padding-top: 0px;
+                white-space: pre-wrap;
+
+            }
+            a{
+            color: black;
+            font-size: 14px;
+            font-weight: 300;
+            padding: 3px 15px 3px 5px;
+            text-decoration: none;
+            }
+            a:hover{
+                color: rgba(82, 82, 248, 0.959);
+            }
+            h2{
+            color: black;
+            font-size: 10px;
+        }
+        }
+        p{
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+        *{
+            margin-left: 2px;
+            margin-top: 5px;
+        }
+        h4{
+            color: black;
+            font-size: 18px;
+        }
+        h2{
+            color: black;
+            font-size: 14px;
+        }
+        ul{
+            align-items:flex-start;
+            display: flex;
+            flex-direction: row;
+        }
+        ol{
+            position: relative;
+            bottom: 3px;
+        }
+        textarea{
+            resize:none;
+            height: 40px;
+            max-height: 300px;
+            width: 475px;
+            font-size: 30px;
+            border: none;
+        }
+        textarea:hover{
+            cursor: pointer;
+        }
+        input[type=submit]{
+            
+            height: 30px;
+            width: 120px;
+            font-weight: 100;
+            font-size: 20px;
+        }
+        input[type=submit]:hover{
+            background-color: lightgray;
+            
+        }
+        #profimg{
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }   
+}
+                input[type=submit]{
+            
+            height: 30px;
+            width: 120px;
+            font-weight: 100;
+            font-size: 20px;
+        }
+        input[type=submit]:hover{
+            background-color: lightgray;
+            
+        }
+            .sudo-text{
+                transition-duration: .1s;
+        border: none;
+        border-radius: 16px;
+        width: 640px;
+        color: black;
+        height: 40px;
+        text-indent: 20px;
+        text-align: left;
+        background-color: #f0f2f5;
+    }
+    .sudo-text:hover{
+        transition-duration: .1s;
+        background-color: #ebebeb;
+        cursor: pointer;
+    }

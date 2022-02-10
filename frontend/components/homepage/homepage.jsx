@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import NotificationsContainer from "./notifications_container";
+import NotificationsContainer from "./notifications/notifications_container";
 
 class Homepage extends React.Component{
     constructor(props){
@@ -10,8 +10,9 @@ class Homepage extends React.Component{
         }
         this.HandleLogOut = HandleLogOut.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.props.fetchPendingNotifcations()
-        this.props.fetchNotifications()
+        props.fetchAcquaintacnes({user_id: props.currentUser})
+        props.fetchPendingNotifcations()
+        props.fetchNotifications()
     }
 
     handleClick(){
