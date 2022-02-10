@@ -14,10 +14,9 @@ class EditProfilePic extends React.Component{
     handleFile(e){
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
-        this.setState({photoFile: e.currentTarget.files[0], photoUrl: fileReader.results})
-        fileReader.onloadend = () => {
-
-        }
+        fileReader.onloadend = function () {
+            this.setState({photoFile: file, photoUrl: fileReader.result})
+        }.bind(this)
         if (file){
             fileReader.readAsDataURL(file);
         }
@@ -41,13 +40,14 @@ class EditProfilePic extends React.Component{
         this.props.closeModal();
     }
     render(){
+        const photo = this.state.photoUrl
         return <div className="modal-post-form">
             <ul id="label">
                 <h1>Profile Photo</h1>
                 <h2 id="close-window" onClick={this.handleClose}>X</h2>
             </ul>
             <form onSubmit={this.handleSubmit} id="photo-form">
-                <img src={this.state.photoUrl} id="photo-preview"/>
+                <img src={photo} id="photo-preview"/>
                 <input type="file" onChange={this.handleFile}/>
                 <button>submit</button>
             </form>
