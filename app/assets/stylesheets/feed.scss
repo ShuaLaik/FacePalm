@@ -195,3 +195,106 @@
         background-color: #ebebeb;
         cursor: pointer;
     }
+
+#feed-container{
+    display: flex;
+    flex-direction: row;
+    h1{
+        font-size: 20px;
+        margin: 10px;
+        color: black;
+    }
+    a{
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        margin: 0px 20px 0px 20px;
+        border-radius: 8px
+    }
+    a:hover{
+        background-color: rgb(218, 218, 218)
+    }
+    .abcde{
+        position: relative;
+        top: 65px;
+        min-width: 25%;
+        img{
+            height: 40px;
+            width: 40px
+        }
+    }
+#acquaintances-container{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 55px;
+    width: 400px;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 10px;
+    border-left: 1px solid rgb(230, 230, 230);
+    border-right: 1px solid rgb(230, 230, 230);
+    border-top: 0.5px solid rgb(230, 230, 230);
+    border-bottom: 3px solid rgb(230, 230, 230);
+    div{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    h1{
+        font-size: 35px;
+        color: rgb(49, 49, 49);
+        font-weight: 700;
+        padding: 10px 10px 20px 10px;
+    }
+}
+.acquaintance-item{
+    width: 400px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    border-radius: 8px;
+    border: 2px solid rgb(240, 240, 240);
+    div{
+        h2{
+            font-weight: 500;
+            font-size: 18px;
+            padding: 15px;
+            text-overflow: ellipsis;
+        }
+        a{
+            padding: 0px;
+            margin: 0px;
+            text-decoration: none;
+        }
+        a:hover{
+            cursor: pointer;
+        }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    img{
+        height: 60px;
+        width: 60px;
+        border-radius: 8px;
+    }
+    button{
+        display: none;
+        // margin: 20px;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+}
+ 
+    // ul{
+    //     position: relative;
+    //     top: 55px;
+    // }
+}
