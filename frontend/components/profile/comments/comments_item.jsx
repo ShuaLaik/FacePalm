@@ -15,9 +15,11 @@ export default class CommentsItem extends Component {
     }
     render() {
         const { comment } = this.props
+        // debugger
         const commentAuthor = this.props.users[comment.user_id]
         if (!commentAuthor) return null;
-        return <div key={comment.id} className="full-comment">
+        return <div id="comment-shaper">
+            <div key={comment.id} className="full-comment">
                     <div className="inbetween"> 
                         <div className="comment">
                             <img src={commentAuthor.avatarUrl} />
@@ -30,16 +32,18 @@ export default class CommentsItem extends Component {
                                 <p>{comment.body}</p>
                             </div>
                         </div> 
-                            <div id="comment-buttons-div">
+                           {this.props.currentUser.id === comment.user_id ? <div id="comment-buttons-div">
                                 <h2 className="comment-buttons"
                                 onClick={() => this.handleEdit(comment.id)}>Edit</h2>
                                 <h2     
                                 className="comment-buttons"
                                 onClick={() => this.handleDelete(comment.id)}
                                 >Delete</h2>
-                            </div>
+                            </div> : null}
                             <h2 className="time">{comment.created_at}</h2>
                         </div>
+                </div>
+                <div></div>
                 </div>
     }
 }

@@ -64,7 +64,6 @@ export default class Button extends Component {
             })
             
         } else if (this.props.acqs.includes(pageUser.id)) {
-            debugger
             change = true
             this.setState({
                 type: "Remove Acquaintance", 

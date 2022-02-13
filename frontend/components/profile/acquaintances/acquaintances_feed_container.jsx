@@ -5,7 +5,6 @@ import AcquaintancesIndex from "./acquaintances_index"
 import { fetchUserAcquaintances } from "../../../actions/acquaintance_actions"
 
 const mSTP = state => {
-    debugger
     return {
     users: state.entities.users,
     pageUser: state.entities.users[state.sessions.id],
