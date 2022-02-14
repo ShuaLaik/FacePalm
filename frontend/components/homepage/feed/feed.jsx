@@ -44,6 +44,10 @@ export default class Feed extends Component {
                     <img className="logos" src={window.angellogoURL}/>
                     <h1 className="banner-text">Angel List</h1>
                 </Link>
+                <Link className="a" to="https://shualaik.github.io/JoshuaLaikowski/" target="_blank">
+                    <img className="logos" src="https://secure.gravatar.com/avatar/11598a1d430471c67b5a1787ce19feab?secure=true&size=300"/>
+                    <h1 className="banner-text">Portfolio Site</h1>
+                </Link>
             </ul>
             <div id="feed">
             <Inbetween postUser={this.props.users[this.props.currentUser]}/>
