@@ -6,6 +6,14 @@ As you can see, I've switched the 'book' in 'facebook' to 'palm' to represent th
 
 ## Features
 
+Facepalm was created using: 
+
+- Ruby on Rails
+- Ruby
+- Javascript
+- React
+- Redux
+
 ### Account Creation and Authentication
 
 Right off the bat, your met with a login page on your first visit, which was stylized as similarly to the facebook login page as possible. A key differnece is that instead of rendering errors to a new page, they are rendered directly to the top of the page, making for a more seamless login/sign up experience. 
@@ -22,7 +30,10 @@ The errors are rendered in a function like so:
     {this.renderErrors(this.props.sessionErrors)}
 </div>
 `
-            
+
+### Home Page and Creating Posts
+
+After logging in, you'll be met with a very empty looking homepage, and there's only one way to fill it up. Make a post! In your feed, all of your and your acquaintances posts will be shown in posted order. Posts will also have a comment section, so be sure to let you're friends know what their post has you thinking!
 
 
 
