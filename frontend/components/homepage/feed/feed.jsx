@@ -28,26 +28,26 @@ export default class Feed extends Component {
         posts.reverse();
         return <div id="feed-container">
             <ul className="abcde">
-                <Link className="a" to={`/profile/${user.id}`} >
+                <a className="a" to={`/profile/${user.id}`} >
                     <img id="banner-img" src={user.avatarUrl} />
                     <h1 className="banner-text">{user.first_name} {user.last_name}</h1>
-                </Link>
-                <Link className="a" to="https://github.com/ShuaLaik" target="_blank">
+                </a>
+                <a className="a" to="https://github.com/ShuaLaik" target="_blank">
                     <img className="logos"src={window.githublogoURL}/>
                     <h1 className="banner-text">GitHub</h1>
-                </Link>
-                <Link className="a" to="https://www.linkedin.com/in/joshualaikowski/" target="_blank">
+                </a>
+                <a className="a" to="https://www.linkedin.com/in/joshualaikowski/" target="_blank">
                     <img className="logos" src={window.linkedinlogoURL}/>
                     <h1 className="banner-text">LinkedIn</h1>
-                </Link>
-                <Link className="a" to="https://angel.co/u/joshua-laikowski" target="_blank">
+                </a>
+                <a className="a" to="https://angel.co/u/joshua-laikowski" target="_blank">
                     <img className="logos" src={window.angellogoURL}/>
                     <h1 className="banner-text">Angel List</h1>
-                </Link>
-                <Link className="a" to="https://shualaik.github.io/JoshuaLaikowski/" target="_blank">
+                </a>
+                <a className="a" to="https://shualaik.github.io/JoshuaLaikowski/" target="_blank">
                     <img className="logos" src="https://secure.gravatar.com/avatar/11598a1d430471c67b5a1787ce19feab?secure=true&size=300"/>
                     <h1 className="banner-text">Portfolio Site</h1>
-                </Link>
+                </a>
             </ul>
             <div id="feed">
             <Inbetween postUser={this.props.users[this.props.currentUser]}/>
