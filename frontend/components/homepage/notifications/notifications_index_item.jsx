@@ -26,3 +26,6 @@ export default class NotificationsIndexItem extends Component {
     </Link>;
   }
 }
+
+
+//Added a comment
