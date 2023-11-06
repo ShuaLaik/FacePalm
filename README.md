@@ -1,4 +1,5 @@
 # Facepalm
+# WEBSITE NO LONGER HOSTED - sorry for the inconvenience :(
 ## Overview
 Facepalm is a clone of Facebook where friends can sign up and interact with one another! Much like the original site, Users can sign up and and customize their profile, from their profile photo to their favoritie color! They're also able to make posts, which their fellow acquaintance can comment and interact with. Overall, it's a place to connect and share thoughts.
 
